@@ -86,13 +86,27 @@ h2 {
     grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
     gap: 2rem;
 }
+@keyframes fadeInUp {
+    0% {
+        opacity: 0;
+        transform: translateY(20px);
+    }
 
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
 .project {
+    opacity: 0; /* Initial state */
+    transform: translateY(20px);
+    animation: fadeInUp 1s ease forwards;
+    transition: transform 0.3s ease; /* Smooth transition for hover scaling */
+
     background-color: white;
     padding: 2rem;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     border-radius: 8px;
-    transition: transform 0.2s;
     margin-bottom: 2rem;
 }
 
@@ -159,6 +173,9 @@ footer {
     }
     .skills {
         width: 100%;
+    }
+    .project:hover {
+        transform: scale(1.02); 
     }
 }
 
