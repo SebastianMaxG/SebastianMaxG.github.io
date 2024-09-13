@@ -35,8 +35,9 @@ a {
 }
 
     .btn:hover {
-        background-color: var(--accent-color);
         color: white;
+        background-color: var(--accent-color);
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
     }
 
 header {
@@ -97,6 +98,7 @@ h2 {
 
     .project:hover {
         transform: scale(1.05); /* Slight zoom on hover */
+        box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
     }
 
     .project img {
@@ -164,11 +166,3 @@ html {
     scroll-behavior: smooth;
 }
 
-.btn:hover {
-    background-color: var(--accent-color);
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-}
-
-.project:hover {
-    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
-}
