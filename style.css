@@ -86,6 +86,10 @@ footer {
         margin: 10px;
     }
 
+.preserve-whitespace {
+    white-space: pre-line;
+}
+
 @media (max-width: 600px) {
     header nav ul li {
         display: block;
