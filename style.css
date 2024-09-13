@@ -1,18 +1,49 @@
+:root {
+    --primary-color: #3498db; /* Blue */
+    --secondary-color: #2c3e50; /* Dark Gray */
+    --accent-color: #f39c12; /* Orange */
+    --bg-color: #f4f4f4; /* Light Gray Background */
+}
+
+
 body {
     font-family: Arial, sans-serif;
     margin: 0;
     padding: 0;
-    background-color: #f4f4f4;
+    background-color: var(--bg-color);
     display: flex;
     flex-direction: column;
     min-height: 100vh;
 }
 
-header {
-    background-color: #333;
+a {
+    color: var(--primary-color);
+}
+
+    a:hover {
+        color: var(--accent-color);
+    }
+
+.btn {
+    background-color: var(--primary-color);
     color: white;
+    padding: 0.75rem 1.5rem;
     text-align: center;
-    padding: 1rem;
+    border-radius: 5px;
+    text-decoration: none;
+    display: inline-block;
+}
+
+    .btn:hover {
+        background-color: var(--accent-color);
+
+    }
+header {
+    background-color: var(--secondary-color);
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 }
 
     header nav ul {
@@ -27,9 +58,16 @@ header {
 
             header nav ul li a {
                 color: white;
+                padding: 0.5rem 1rem;
                 text-decoration: none;
+                font-weight: bold;
+                border-radius: 5px;
+                transition: background-color 0.3s;
             }
-
+                
+            header nav ul li a:hover {
+                    background-color: var(--primary-color);
+                }
 section {
     padding: 2rem;
     flex: 1;
@@ -41,15 +79,22 @@ h2 {
 
 .project-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(500px, 1fr));
-    gap: 1rem;
+    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+    gap: 2rem;
 }
 
 .project {
     background-color: white;
-    padding: 1rem;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    padding: 2rem;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+    transition: transform 0.2s;
+    margin-bottom: 2rem;
 }
+
+    .project:hover {
+        transform: scale(1.05); /* Slight zoom on hover */
+    }
 
     .project img {
         width: 100%;
@@ -101,4 +146,17 @@ footer {
     .skills {
         width: 100%;
     }
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+.btn:hover {
+    background-color: var(--accent-color);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.project:hover {
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
 }
