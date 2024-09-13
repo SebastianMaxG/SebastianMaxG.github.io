@@ -16,6 +16,10 @@ body {
     min-height: 100vh;
 }
 
+.centerText {
+    text-align: center;
+}
+
 a {
     color: var(--primary-color);
 }
