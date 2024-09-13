@@ -95,7 +95,9 @@ footer {
         display: block;
         margin: 0.5rem 0;
     }
-
+    .project-grid {
+        grid-template-columns: 1fr; /* Display one project per row on smaller screens */
+    }
     .skills {
         width: 100%;
     }
