@@ -91,7 +91,7 @@ h2 {
 
 .about-me-image {
     display: block;
-    max-width: 100%;
+    width: 250px;
     height: auto;
     margin: 0 auto 20px; /* Center the image and add some space below it */
     border-radius: 50%; /* Optional: make the image circular */
@@ -99,7 +99,7 @@ h2 {
 
 .project-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
     gap: 2rem;
 }
 
