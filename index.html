@@ -1,7 +1,4 @@
 <!DOCTYPE html>
-<meta name="description" content="Portfolio of Leander Flossie, a Game Development student showcasing game engine development, gameplay programming, and tool creation.">
-<meta name="keywords" content="Game Development, Unreal Engine, Unity, C++, Gameplay Programmer,Game Dev, Portfolio">
-<meta name="author" content="Leander Flossie">
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -55,7 +52,7 @@
                     This is the Project I am currently working on. It is a redesign of an arcade machine Puzzeled.
                     We got the machine from the school and we are redesigning it to be a more modern and fun experience.
                     Its a machine with a custom IO library that allows for the use of the buttons, coin input, tickets and led's'.
-                    There was no documentation of the libraries and this posed a challenge since it ran the original game. 
+                    There was no documentation of the libraries and this posed a challenge since it ran the original game.
                     After decompiling all of the provided files I was able to get a basic understanding of the library and how to use it, and was able to make an interacting .NET console application.
                     The aplication is now running a inter-proccess communication system that allows for the use of the buttons and led's. The goal is to make this into a Unity native plugin but the library's aren't compatible with Unity.
                     So I am currently working with Vanden Abeele Alex (Teacher) on rewriting the decomp[iled libraries to function.
@@ -76,7 +73,7 @@
                 </p>
                 <a href="https://sebastianmax.itch.io/rageintheoffice" target="_blank" class="btn">View on Itch.io</a>
             </div>
-            <div class="project" >
+            <div class="project">
                 <img src="Resources/BombermanGameEngine.png" alt="BombermanGameEngine">
                 <h3>Game Engine + Bomberman NES</h3>
                 <p class="preserve-whitespace">
@@ -106,7 +103,7 @@
                 </p>
                 <a href="https://github.com/Howest-DAE-GD/gpp-researchtopic-SebastianMaxG" target="_blank" class="btn">View on GitHub</a>
             </div>
-            <div class="project" >
+            <div class="project">
                 <img src="Resources/PoMoCo.png" alt="PoMoCo">
                 <h3>Poseidon's Moving Company</h3>
                 <p class="preserve-whitespace">
@@ -121,7 +118,7 @@
                 </p>
                 <a href="https://akadeax.itch.io/poseidons-moving-company" target="_blank" class="btn">View on Itch</a>
             </div>
-            <div class="project" >
+            <div class="project">
                 <img src="Resources/Phys.gif" alt="PhysVis">
                 <h3>Vulcan + Bullet Physics Visualizer</h3>
                 <p class="preserve-whitespace">
@@ -172,6 +169,12 @@
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
     <script>
         AOS.init();
+    </script>
+    <script>
+        window.addEventListener('scroll', function () {
+            const header = document.querySelector('header');
+            header.classList.toggle('scrolled', window.scrollY > 0);
+        });
     </script>
 </body>
 </html>
