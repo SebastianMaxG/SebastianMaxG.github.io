@@ -5,6 +5,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Leander Flossie | Game Developer Portfolio</title>
     <link rel="stylesheet" href="style.css">
+    <script src="https://unpkg.com/masonry-layout@4/dist/masonry.pkgd.min.js"></script>
+    <script src="https://unpkg.com/imagesloaded@4/imagesloaded.pkgd.min.js"></script>
     <!-- Google tag (gtag.js) -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-01H4C4H1KL"></script>
     <script>
@@ -13,6 +15,38 @@
         gtag('js', new Date());
 
         gtag('config', 'G-01H4C4H1KL');
+    </script>
+    <script>
+        // Fetch projects from the JSON file and render them
+        fetch('projects.json')
+            .then(response => response.json())
+            .then(projects => {
+                const container = document.getElementById('project-container');
+                projects.forEach(project => {
+                    const projectElement = document.createElement('div');
+                    projectElement.classList.add('project');
+                    const tagsHTML = project.Tags.map(tag => `<span class="tag">${tag}</span>`).join('');
+                    projectElement.innerHTML = `
+                        <img src="${project.image}" alt="${project.alt}">
+                        <h3>${project.title}</h3>
+                        <p class="preserve-whitespace">${project.description}</p>
+                        <div class="tags">${tagsHTML}</div>
+                        ${project.link ? `<a href="${project.link}" target="_blank" class="btn">View More</a>` : ''}
+                    `;
+                    container.appendChild(projectElement);
+                });
+                            // Reinitialize Masonry after adding content
+            const grid = document.querySelector('.project-grid');
+            imagesLoaded(grid, function () {
+                new Masonry(grid, {
+                    itemSelector: '.project',
+                    columnWidth: 4,
+                    percentPosition: true,
+                    gutter: 20,
+                });
+            });
+            })
+            .catch(error => console.error('Error loading projects:', error));
     </script>
 </head>
 <body>
@@ -44,8 +78,8 @@
 
     <section id="projects">
         <h2>Projects</h2>
-        <div class="project-grid">
-	        <div class="project">
+        <div class="project-grid" id="project-container">
+	        <!-- <div class="project">
 		        <img src="Resources/Intern.png" alt="Unpaid Intern">
 		        <h3>Internship Cyborn as Tool Developer</h3>
 		        <p class="preserve-whitespace">
@@ -157,7 +191,7 @@
                     Built using CMake/C++.
                 </p>
                 <a href="https://github.com/SebastianMaxG/Vulkan-Physics-Visualizer" target="_blank" class="btn">View on GitHub</a>
-            </div>
+            </div> -->
             <!-- Add more project entries as needed -->
         </div>
     </section>
@@ -170,8 +204,7 @@
                 <li>C#</li>
                 <li>Java</li>
                 <li>Python</li>
-                <li>HTML</li>
-                <li>JavaScript</li>
+                <li>.NET</li>
                 <li>Unreal Engine</li>
                 <li>Unity</li>
                 <li>Maya 2023</li>
@@ -190,7 +223,7 @@
     </div>
 
     <footer>
-        <p>&copy; 2024 Leander Flossie</p>
+        <p>&copy; 2025 Leander Flossie</p>
     </footer>
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
     <script>
