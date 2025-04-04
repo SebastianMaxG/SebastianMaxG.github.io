@@ -87,6 +87,11 @@ h2 {
     text-align: center;
     display: block;
 }
+h3 {
+    color: white;
+    text-align: center;
+    display: block;
+}
 
 p {
     color: #ddd;;
