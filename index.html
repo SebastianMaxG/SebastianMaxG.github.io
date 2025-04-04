@@ -22,9 +22,14 @@
             .then(response => response.json())
             .then(projects => {
                 const container = document.getElementById('project-container');
+                const skillsSet = new Set();
+                const extraSkills = ['Problem Solving', 'Team Collaboration', 'Git', 'C++', 'C#', 'Java', 'Python', 'Unreal Engine', 'Unity', 'Maya 2023', 'Houdini', 'Inventor'];
+                extraSkills.forEach(skill => skillsSet.add(skill));
+
                 projects.forEach(project => {
                     const projectElement = document.createElement('div');
                     projectElement.classList.add('project');
+                    project.Tags.forEach(tag => skillsSet.add(tag));
                     const tagsHTML = project.Tags.map(tag => `<span class="tag">${tag}</span>`).join('');
                     projectElement.innerHTML = `
                         <img src="${project.image}" alt="${project.alt}">
@@ -35,6 +40,16 @@
                     `;
                     container.appendChild(projectElement);
                 });
+
+
+            // Populate the Skills section
+            const skillsContainer = document.getElementById('skills-container');
+            skillsSet.forEach(skill => {
+                const skillTag = document.createElement('span');
+                skillTag.classList.add('tag'); // Reuse the .tag class for styling
+                skillTag.textContent = skill;
+                skillsContainer.appendChild(skillTag);
+            });
                             // Reinitialize Masonry after adding content
             const grid = document.querySelector('.project-grid');
             imagesLoaded(grid, function () {
@@ -79,137 +94,15 @@
     <section id="projects">
         <h2>Projects</h2>
         <div class="project-grid" id="project-container">
-	        <!-- <div class="project">
-		        <img src="Resources/Intern.png" alt="Unpaid Intern">
-		        <h3>Internship Cyborn as Tool Developer</h3>
-		        <p class="preserve-whitespace">
-			        Note: I am under NDA and can't disclose too much information.
-			        In my internship at Cyborn, I worked have worked on Unreal Engine 5 Source engine additions as well as a custom tool for the company.
-			        Other than that I worked on a WPF Software Distribution System as well as creating a Launchpad for internal tools. As well as other tools.
-			        I have learned a lot about the Unreal Engine and how to work with a large codebase.
-			        I have also learned a bit more about how to work in a professional environment.
-			        Made use of Unreal/C++/C#/WPF/Python/.bat/Console.
-		        </p>
-	        </div>
-	        <div class="project">
-		        <img src="Resources/Gradwork.jpg" alt="Gradwork">
-		        <h3>Gradwork: Optical Character Recognition</h3>
-		        <p class="preserve-whitespace">
-			        For my graduation project, I implemented an Optical Character Recognition (OCR) system that recognizes text from images for use in a Magic System.
-			        The system is built using the Tesseract OCR engine and a custom neural network trained on a dataset using a Runic alphabet Font.
-			        I trained multiple models using tesstrain and the Tesseract OCR engine inside of a Linux Ubuntu .
-			        The reason I took this project is that I wanted to learn more about neural networks and how to implement them in a real-world scenario.
-			        As well as my interest in creating a magic system that uses runes allowing players to learn and create their own spells.
-			        Using Python/Tesseract-OCR/Linux WSL.
-		        </p>
-	        </div>
-	        <div class="project">
-                <img src="Resources/Arcade.jpg" alt="Arcade Machine">
-                <h3>Redesign of Puzzled</h3>
-                <p class="preserve-whitespace">
-                    This Project is a Group Project. It is a redesign of an arcade machine Puzzled.
-                    Howest DAE got given an unsuccessful arcade cabinet from Benchmark Games (Elaut Group) and we are redesigning it to be a more modern and fun experience.
-                    I mainly worked on the integration of the arcade machine into Unity, and the other programmer only worked on the game itself.
-                    Its a machine with a custom IO library that allows for the use of the buttons, coin input, tickets and led's'.
-                    There was no documentation of the libraries and this posed a challenge since it ran the original game in a custom engine that used Unity only for rendering.
-                    After decompiling all the provided files I was able to get a basic understanding of the library and how to use it, and was able to make an interacting .NET console application.
-                    The application was able to run an inter-process communication system that allows for the use of the buttons and led's.
-                    After this I was able to make a Unity plugin that allows for the use of the library in Unity since the issue lied with unity being mono and not supporting the c++ comunication library.
-                    I had some help from my teacher Vanden Abeele Alex to solve this issue.
-                    This project is a great learning experience, and I am learning a lot about communication systems and custom input api's as well as creating engine plugins.
-                    Using Unity/C#/.NET.
-                </p>
-            </div>
-            <div class="project">
-                <img src="Resources/RITO.png" alt="Rage In The Office">
-                <h3>Rage In The Office</h3>
-                <p class="preserve-whitespace">
-                    This was a group project with a team of 2 programmers and 2 artists, me being one of the 2 programmers.
-                    One of the main challenges at the start of the project is that we wanted to have the objects shatter from damage applied to them.
-                    however, we had no idea how to do this. After some research, we found out that we could use the chaos physics system in Unreal Engine 5.
-                    this is a beta feature and didn't have much documentation on it as well as the fact that it isn't made for games.
-                    To solve this we used a basic system where we would spawn a chaos object in the place of the old one when it got destroyed since chaos objects didn't allow for dynamic movement.
-                    Built using Unreal/C++.
-                </p>
-                <a href="https://sebastianmax.itch.io/rageintheoffice" target="_blank" class="btn">View on Itch.io</a>
-            </div>
-            <div class="project">
-                <img src="Resources/BombermanGameEngine.png" alt="BombermanGameEngine">
-                <h3>Game Engine + Bomberman NES</h3>
-                <p class="preserve-whitespace">
-                    This is a project where I made a game engine from scratch in C++ and then made a Bomberman NES clone using that engine.
-                    The engine was made using the SDL2 library and the game was made using the engine.
-                    I made a basic entity-component system as well as a basic collision system.
-                    The system I am most proud of is the event system that is based on the signal/slot pattern taking inspiration from GODOT.
-                    It allows for easy communication between objects in the game since it calls functions and not objects as well as being fully templatable.
-                    The Game itself is a simple Bomberman clone with a single player mode and a multiplayer mode with only 5 levels.
-                    It has animations, sound, and a basic AI.
-                    Built using purely C++ and SDL libraries.
-                </p>
-                <a href="https://github.com/SebastianMaxG/Prog-4-Game-Engine" target="_blank" class="btn">View on GitHub</a>
-            </div>
-            <div class="project">
-                <img src="Resources/research.gif" alt="Research Project">
-                <h3>Formation Movement Research</h3>
-                <p class="preserve-whitespace">
-                    In this project, I researched how to make a formation movement system for a game.
-                    This was also my first time making an almost fully c++ unreal project.
-                    The project allows you to select a group of units and then move them around in a formation.
-                    You can specify the formation as well as rotation and the units will move to the correct position in the formation.
-                    The project makes use of the Unreal Engine's AI system to move the units. to the specified position.
-                    This was a challenging project at the time, however I learned a lot from it.
-                    It also comes with a simple RTS camera system as well as a research document.
-                    Built using Unreal/C++.
-                </p>
-                <a href="https://github.com/Howest-DAE-GD/gpp-researchtopic-SebastianMaxG" target="_blank" class="btn">View on GitHub</a>
-            </div>
-            <div class="project">
-                <img src="Resources/PoMoCo.png" alt="PoMoCo">
-                <h3>Poseidon's Moving Company</h3>
-                <p class="preserve-whitespace">
-                    This is a GameJam project where we had to make a game in 2 and a half days.
-                    The theme of the game jam was "Keep it moving".
-                    We decided to make a game where you play as a moving company that makes use of sharks.
-                    The reason for this is that sharks never stop moving.
-                    The game is a 2D game where you have to pick up boxes and furniture and bring them to the moving van.
-                    The twist is that you have to do this while avoiding the walls because you shouldn't damage the furniture.
-                    We worked in a team of 6 people, 2 artists, 3 programmers, and 1 sound designer.
-                    The game was made in Godot and also my first time using this engine.
-                </p>
-                <a href="https://akadeax.itch.io/poseidons-moving-company" target="_blank" class="btn">View on Itch</a>
-            </div>
-            <div class="project">
-                <img src="Resources/Phys.gif" alt="PhysVis">
-                <h3>Vulcan + Bullet Physics Visualizer</h3>
-                <p class="preserve-whitespace">
-                    This is a project where I made a visualizer for the Bullet Physics engine.
-                    The visualizer is made using the Vulcan graphics API.
-                    It is able to show the physics objects in the scene as well as their acceleration and velocity vectors.
-                    The project is made using the Bullet Physics engine and the Vulcan graphics API making use of CMake to build the project.
-                    The project gave me insight on implementing different libraries and how to use them together.
-                    While making this project I wanted every model to have accurate collision so it includes a remesher for concave objects.
-                    Built using CMake/C++.
-                </p>
-                <a href="https://github.com/SebastianMaxG/Vulkan-Physics-Visualizer" target="_blank" class="btn">View on GitHub</a>
-            </div> -->
-            <!-- Add more project entries as needed -->
         </div>
     </section>
 
     <div class="flex-container">
         <section id="skills">
             <h2>Skills</h2>
-            <ul>
-                <li>C++</li>
-                <li>C#</li>
-                <li>Java</li>
-                <li>Python</li>
-                <li>.NET</li>
-                <li>Unreal Engine</li>
-                <li>Unity</li>
-                <li>Maya 2023</li>
-                <li>Houdini</li>
-            </ul>
+            <div class="tags" id="skills-container">
+                <!-- Skills will be dynamically generated here -->
+            </div>
         </section>
 
         <section id="contact">

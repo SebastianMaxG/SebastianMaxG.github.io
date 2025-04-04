@@ -218,6 +218,19 @@ footer {
     margin: 5px 5px 0 0;
     border-radius: 15px;
     border: 1px solid #4db8ff;
+    
+    text-align: center;
+    white-space: nowrap;
+    transition: background-color 0.3s ease;
+    transition: color 0.3s ease;
+    transition: border 0.3s ease;
+}
+
+.tag:hover {
+    background-color: #c27d0d77;
+    color: #f39c12;
+    border: 1px solid #f39c12;
+    cursor: pointer;
 }
 
 .tags {
