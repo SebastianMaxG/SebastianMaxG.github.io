@@ -95,6 +95,7 @@ h3 {
 
 p {
     color: #ddd;;
+    display: block;
 }
 
 #about {
@@ -162,12 +163,6 @@ p {
         object-fit: cover; /* Ensures the image covers the entire area */
         display: block;
         margin-bottom: 1rem;
-    }
-    .project h3 {
-        display: block;
-    }
-    .project p {
-        display: block;
     }
     
 
