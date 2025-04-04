@@ -55,7 +55,7 @@
             imagesLoaded(grid, function () {
                 new Masonry(grid, {
                     itemSelector: '.project',
-                    columnWidth: 4,
+                    columnWidth: '.project',
                     percentPosition: true,
                     gutter: 20,
                 });
@@ -91,27 +91,30 @@
         </p>
     </section>
 
-    <section id="projects">
-        <h2>Projects</h2>
-        <div class="project-grid" id="project-container">
-        </div>
-    </section>
-
-    <div class="flex-container">
-        <section id="skills">
-            <h2>Skills</h2>
-            <div class="tags" id="skills-container">
-                <!-- Skills will be dynamically generated here -->
-            </div>
-        </section>
-
-        <section id="contact">
-            <h2>Contact</h2>
-            <p>Email: <a href="mailto:leander.flossie@icloud.com">leander.flossie@icloud.com</a></p>
-            <p>LinkedIn: <a href="https://www.linkedin.com/in/leander-flossie-82068b253" target="_blank">LinkedIn</a></p>
-            <p>GitHub: <a href="https://github.com/sebastianmaxg" target="_blank">github.com/SebastianMaxG</a></p>
-            <p>Itch: <a href="https://sebastianmax.itch.io/" target="_blank">SebastianMax.itch.io</a></p>
-            <p>Phone: <a href="tel:+32470858304">+32 470 85 83 04</a></p>
+    <div class="main-container">
+        <aside class="sidebar">
+            <section id="skills">
+                <h2>Skills</h2>
+                <div class="tags" id="skills-container">
+                    <!-- Skills will be dynamically generated here -->
+                </div>
+            </section>
+    
+            <section id="contact">
+                <h2>Contact</h2>
+                <p>Email: <a href="mailto:leander.flossie@icloud.com">leander.flossie@icloud.com</a></p>
+                <p>LinkedIn: <a href="https://www.linkedin.com/in/leander-s-m-flossie-82068b253" target="_blank">LinkedIn</a></p>
+                <p>GitHub: <a href="https://github.com/sebastianmaxg" target="_blank">github.com/SebastianMaxG</a></p>
+                <p>Itch: <a href="https://sebastianmax.itch.io/" target="_blank">SebastianMax.itch.io</a></p>
+                <p>Phone: <a href="tel:+32470858304">+32 470 85 83 04</a></p>
+            </section>
+        </aside>
+    
+        <section id="projects">
+            <h2>Projects</h2>
+                <div class="project-grid" id="project-container" >
+                    <!-- Projects will be dynamically generated here -->
+                </div>
         </section>
     </div>
 

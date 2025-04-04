@@ -82,7 +82,13 @@ section {
 }
 
 h2 {
+    color: white;
     text-align: center;
+    display: block;
+}
+
+p {
+    color: #ddd;;
 }
 
 #about {
@@ -97,10 +103,23 @@ h2 {
     margin: 0 auto 20px; /* Center the image and add some space below it */
     border-radius: 50%; /* Optional: make the image circular */
 }
+.main-container {
+    display: flex;
+    align-items: flex-start;
+    gap: 2rem; /* Space between the sidebar and projects */
+    margin: 2rem;
+}
+
+/* Sidebar styling */
+.sidebar {
+    flex: 0 0 400px; /* Fixed width for the sidebar */
+    position: sticky;
+    top: 5rem; /* Distance from the top of the viewport */
+    height: fit-content; /* Adjust height to fit content */
+}
 
 .project-grid {
     display: block; /* Masonry requires block display */
-    margin: 0 auto;
 }
 
 .project-stack {
@@ -109,23 +128,20 @@ h2 {
     gap: 2rem; /* Add space between items */
     justify-content: center; /* Center items horizontally */}
 
-@media (min-width: 1200px) {
-    .project-grid {
-        grid-template-columns: repeat(4, 1fr);
-    }
-}
+
 
 .project {
     transition: transform 0.3s ease; /* Smooth transition for hover scaling */
     background-color: rgb(37, 37, 37);
     padding: 2rem;
     margin-bottom: 2rem;
+    margin-left: auto;
+    margin-right: auto;
     box-shadow: 0 4px 8px rgba(35, 100, 143, 0.1);
     border-radius: 8px;
     transition: transform 0.3s ease;
     display: block;
-    min-width: 250px; /* Minimum width for smaller screens */
-    max-width: 400px; /* Limit the width to 400px */
+    width: calc(33% - 4rem - 20px); /* Full width minus padding */
     /* max-width: 400px; Limit the width to 400px */
     
 }
@@ -190,23 +206,43 @@ footer {
     white-space: pre-line;
 }
 
-@media (max-width: 600px) {
+@media (max-width: 800px) {
     header nav ul li {
         display: block;
         margin: 0.5rem 0;
-    }
-    .project-grid {
-        grid-template-columns: 1fr; /* Display one project per row on smaller screens */
-    }
-    .project-stack {
-        gap: 1.5rem; /* Reduce spacing between items */
-        flex-direction: column; 
     }
     .skills {
         width: 100%;
     }
     .project:hover {
         transform: scale(1.02); 
+    }
+    .main-container {
+        flex-direction: column; /* Stack sections vertically */
+        width: 100vw; 
+        gap: 0; /* Space between the sidebar and projects */
+        margin: 0;
+    }
+    .project-grid {
+        width: calc(100vw - 4rem); /* Full width minus padding */
+    }
+    .project {
+        width: calc(100% - 4rem); /* Full width minus padding */
+        margin: 0; 
+    }
+    .sidebar {
+        position: static; /* Remove sticky behavior on small screens */
+        width: 100%; /* Full width */
+    }
+}
+@media (max-width: 1500px) {
+    .project {
+        width: calc(50% - 4rem - 20px);
+    }
+}
+@media (max-width: 1200px) {
+    .project {
+        width: calc(100% - 4rem); /* Full width minus padding */
     }
 }
 .tag {
