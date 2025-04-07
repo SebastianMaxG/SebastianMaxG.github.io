@@ -1,98 +1,112 @@
 [
-    {
-        "image": "Resources/Intern.png",
-        "alt": "Unpaid Intern",
-        "title": "Internship Cyborn as Tool Developer",
-        "description": "Note: I am under NDA and can't disclose too much information.\n\nIn my internship at Cyborn, I worked on Unreal Engine 5 Source engine additions as well as a custom tool for the company.\nOther than that I worked on a WPF Software Distribution System as well as creating a Launchpad for internal tools, along with other tools.\n\nI learned a lot about the Unreal Engine and how to work with large codebases.\nI have also learned a bit more about how to work in a professional environment. Overall, I am gaining more experience in tool programming, an area I had limited exposure to during my education at DAE.",
-        "link": null,
-        "Tags": [
-            "Unreal Engine",
-            "C++",
-            "C#",
-            "WPF",
-            "Python",
-            ".bat",
-            "Console"
-        ]
-    },
-    {
-        "image": "Resources/Gradwork.jpg",
-        "alt": "Gradwork",
-        "title": "Gradwork: Optical Character Recognition",
-        "description": "For my graduation project, I implemented an Optical Character Recognition (OCR) system that recognizes text from images for use in a Magic System.\n\nThe system is built using the Tesseract OCR engine and a custom neural network trained on a dataset using a Runic alphabet Font.\nI trained multiple models using tesstrain and the Tesseract OCR engine inside of a Linux Ubuntu.\n\nThe reason I took this project is that I wanted to learn more about neural networks and how to implement them in a real-world scenario.\nAs well as my interest in creating a magic system that uses runes allowing players to learn and create their own spells.",
-        "link": null,
-        "Tags": [
-            "Python",
-            "Tesseract-OCR",
-            "Linux WSL"
-        ]
-    },
-    {
-        "image": "Resources/Arcade.jpg",
-        "alt": "Arcade Machine",
-        "title": "Redesign of Puzzled",
-        "description": "This Project is a Group Project. It is a redesign of an arcade machine Puzzled.\nHowest DAE got given an unsuccessful arcade cabinet from Benchmark Games (Elaut Group) and we are redesigning it to be a more modern and fun experience.\n\nI mainly worked on the integration of the arcade machine into Unity, and the other programmer only worked on the game itself.\n\nIt's a machine with a custom IO library and circuit board that allows for the use of the buttons, coin input, tickets, and LEDs.\nThere was no documentation of the libraries and this posed a challenge since it ran the original game in a custom engine that used Unity only for rendering.\n\nAfter decompiling all the provided files I was able to get a basic understanding of the library and how to use it, and was able to make an interacting .NET console application.\nThe application was able to run an inter-process communication system that allows for the use of the buttons and LEDs.\n\nAfterward, I developed a Unity plugin to integrate the library, addressing the challenge caused by Unity's Mono framework, which did not support the C++ communication library.\n(I had some help from my teacher Vanden Abeele Alex to solve this issue)\n\nThis project was a great learning experience, and I learned a lot about communication systems and custom input APIs as well as creating engine plugins.",
-        "link": null,
-        "Tags": [
-            "Unity",
-            "C#",
-            ".NET"
-        ]
-    },
-    {
-        "image": "Resources/RITO.png",
-        "alt": "Rage In The Office",
-        "title": "Rage In The Office",
-        "description": "This was a group project with a team of 2 programmers and 2 artists, me being one of the 2 programmers.\n\nOne of the main challenges at the start of the project is that we wanted to have the objects shatter from damage applied to them.\nHowever, we had no idea how to do this. After some research, we found out that we could use the chaos physics system in Unreal Engine 5.\nThis is a beta feature and didn't have much documentation on it as well as the fact that it isn't made for games.\nTo solve this we used a basic system where we would spawn a chaos object in the place of the old one when it got destroyed since chaos objects didn't allow for dynamic movement from external sources. (Example: a player picking it up)\n\n From this project, I learned to deal with minimal documentation and how to work with a team of artists.",
-        "link": "https://sebastianmax.itch.io/rageintheoffice",
-        "Tags": [
-            "Unreal Engine",
-            "C++"
-        ]
-    },
-    {
-        "image": "Resources/BombermanGameEngine.png",
-        "alt": "BombermanGameEngine",
-        "title": "Game Engine + Bomberman NES",
-        "description": "This project involved building a custom game engine from scratch in C++ and creating a Bomberman NES clone using the engine.\n\nThe engine was developed with the SDL2 library and features a basic entity-component system, a collision system, and an event system inspired by the signal/slot pattern from Godot. The event system allows for seamless communication between game objects by calling functions rather than directly interacting with objects, making it fully templatable and highly flexible. The event system is also the part I am most proud of from this project.\n\nThe Bomberman game includes a single-player mode, a multiplayer mode, and five levels. It features animations, sound effects, and a basic AI system.\n\nThis project was a valuable learning experience in engine development, game design, and implementing core gameplay mechanics.",
-        "link": "https://github.com/SebastianMaxG/Prog-4-Game-Engine",
-        "Tags": [
-            "C++",
-            "SDL2"
-        ]
-    },
-    {
-        "image": "Resources/research.gif",
-        "alt": "Research Project",
-        "title": "Formation Movement Research",
-        "description": "In this project, I researched how to make a formation movement system for a game.\nThis was also my first time making an almost fully C++ Unreal project.\n\nThe project allows you to select a group of units and then move them around in a formation.\nYou can specify the formation as well as rotation and the units will move to the correct position in the formation.\nThe project makes use of the Unreal Engine's AI system to move the units to the specified position.\nThis was a challenging project at the time, however, I learned a lot from it.\nIt also comes with a simple RTS camera system as well as a research document.",
-        "link": "https://github.com/Howest-DAE-GD/gpp-researchtopic-SebastianMaxG",
-        "Tags": [
-            "Unreal Engine",
-            "C++"
-        ]
-    },
-    {
-        "image": "Resources/PoMoCo.png",
-        "alt": "PoMoCo",
-        "title": "Poseidon's Moving Company",
-        "description": "This is a GameJam project where we had to make a game in 2 and a half days.\nThe theme of the game jam was 'Keep it moving.'\n\nWe decided to make a game where you play as a moving company that makes use of sharks. The reason for this is that sharks never stop moving.\nThe game is a 2D game where you have to pick up boxes and furniture and bring them to the moving van.\nThe twist is that you have to do this while avoiding the walls because you shouldn't damage the furniture.\n\nWe worked in a team of 6 people, 2 artists, 3 programmers, and 1 sound designer.\nThe game was made in Godot and also my first time using this engine.",
-        "link": "https://akadeax.itch.io/poseidons-moving-company",
-        "Tags": [
-            "Godot"
-        ]
-    },
-    {
-        "image": "Resources/Phys.gif",
-        "alt": "PhysVis",
-        "title": "Vulcan + Bullet Physics Visualizer",
-        "description": "This project involved creating a visualizer for the Bullet Physics engine using the Vulkan graphics API. The visualizer displays physics objects in the scene along with their acceleration and velocity vectors. It integrates the Bullet Physics engine with Vulkan and uses CMake for building the project.\n\nOne of the key features is the inclusion of a remesher for concave objects, ensuring accurate collision detection for all models. This project provided valuable experience in integrating multiple libraries and understanding how to use them together effectively.",
-        "link": "https://github.com/SebastianMaxG/Vulkan-Physics-Visualizer",
-        "Tags": [
-            "C++",
-            "Vulkan",
-            "Bullet Physics",
-            "Cmake"
-        ]
-    }
+  {
+    "title": "Internship Cyborn as Tool Developer",
+    "image": "Resources/Intern.png",
+    "alt": "Unpaid Intern",
+    "description": "Note: I am under NDA and can't disclose too much information.\n\nIn my internship at Cyborn, I worked on Unreal Engine 5 Source engine additions as well as a custom tool for the company.\nOther than that I worked on a WPF Software Distribution System as well as creating a Launchpad for internal tools, along with other tools.\n\nI learned a lot about the Unreal Engine and how to work with large codebases.\nI have also learned a bit more about how to work in a professional environment. Overall, I am gaining more experience in tool programming, an area I had limited exposure to during my education at DAE.",
+    "link": null,
+    "Tags": [
+      "Unreal Engine",
+      "C++",
+      "C#",
+      "WPF",
+      "Python",
+      ".bat",
+      "Console"
+    ]
+  },
+  {
+    "title": "Gradwork: Optical Character Recognition",
+    "image": "Resources/Gradwork.jpg",
+    "alt": "Gradwork",
+    "description": "For my graduation project, I implemented an Optical Character Recognition (OCR) system that recognizes text from images for use in a Magic System.\n\nThe system is built using the Tesseract OCR engine and a custom neural network trained on a dataset using a Runic alphabet Font.\nI trained multiple models using tesstrain and the Tesseract OCR engine inside of a Linux Ubuntu.\n\nThe reason I took this project is that I wanted to learn more about neural networks and how to implement them in a real-world scenario.\nAs well as my interest in creating a magic system that uses runes allowing players to learn and create their own spells.",
+    "link": null,
+    "Tags": [
+      "Python",
+      "Tesseract-OCR",
+      "Linux WSL"
+    ]
+  },
+  {
+    "title": "Redesign of Puzzled",
+    "image": "Resources/Arcade.jpg",
+    "alt": "Arcade Machine",
+    "description": "This Project is a Group Project. It is a redesign of an arcade machine Puzzled.\nHowest DAE got given an unsuccessful arcade cabinet from Benchmark Games (Elaut Group) and we are redesigning it to be a more modern and fun experience.\n\nI mainly worked on the integration of the arcade machine into Unity, and the other programmer only worked on the game itself.\n\nIt's a machine with a custom IO library and circuit board that allows for the use of the buttons, coin input, tickets, and LEDs.\nThere was no documentation of the libraries and this posed a challenge since it ran the original game in a custom engine that used Unity only for rendering.\n\nAfter decompiling all the provided files I was able to get a basic understanding of the library and how to use it, and was able to make an interacting .NET console application.\nThe application was able to run an inter-process communication system that allows for the use of the buttons and LEDs.\n\nAfterward, I developed a Unity plugin to integrate the library, addressing the challenge caused by Unity's Mono framework, which did not support the C++ communication library.\n(I had some help from my teacher Vanden Abeele Alex to solve this issue)\n\nThis project was a great learning experience, and I learned a lot about communication systems and custom input APIs as well as creating engine plugins.",
+    "link": null,
+    "Tags": [
+      "Unity",
+      "C#",
+      ".NET"
+    ]
+  },
+  {
+    "title": "Rage In The Office",
+    "image": "Resources/RITO.png",
+    "alt": "Rage In The Office",
+    "description": "This was a group project with a team of 2 programmers and 2 artists, me being one of the 2 programmers.\n\nOne of the main challenges at the start of the project is that we wanted to have the objects shatter from damage applied to them.\nHowever, we had no idea how to do this. After some research, we found out that we could use the chaos physics system in Unreal Engine 5.\nThis is a beta feature and didn't have much documentation on it as well as the fact that it isn't made for games.\nTo solve this we used a basic system where we would spawn a chaos object in the place of the old one when it got destroyed since chaos objects didn't allow for dynamic movement from external sources. (Example: a player picking it up)\n\n From this project, I learned to deal with minimal documentation and how to work with a team of artists.",
+    "link": "https://sebastianmax.itch.io/rageintheoffice",
+    "Tags": [
+      "Unreal Engine",
+      "C++"
+    ]
+  },
+  {
+    "title": "Game Engine + Bomberman NES",
+    "image": "Resources/BombermanGameEngine.png",
+    "alt": "BombermanGameEngine",
+    "description": "This project involved building a custom game engine from scratch in C++ and creating a Bomberman NES clone using the engine.\n\nThe engine was developed with the SDL2 library and features a basic entity-component system, a collision system, and an event system inspired by the signal/slot pattern from Godot. The event system allows for seamless communication between game objects by calling functions rather than directly interacting with objects, making it fully templatable and highly flexible. The event system is also the part I am most proud of from this project.\n\nThe Bomberman game includes a single-player mode, a multiplayer mode, and five levels. It features animations, sound effects, and a basic AI system.\n\nThis project was a valuable learning experience in engine development, game design, and implementing core gameplay mechanics.",
+    "link": "https://github.com/SebastianMaxG/Prog-4-Game-Engine",
+    "Tags": [
+      "C++",
+      "SDL2"
+    ]
+  },
+  {
+    "title": "Formation Movement Research",
+    "image": "Resources/research.gif",
+    "alt": "Research Project",
+    "description": "In this project, I researched how to make a formation movement system for a game.\nThis was also my first time making an almost fully C++ Unreal project.\n\nThe project allows you to select a group of units and then move them around in a formation.\nYou can specify the formation as well as rotation and the units will move to the correct position in the formation.\nThe project makes use of the Unreal Engine's AI system to move the units to the specified position.\nThis was a challenging project at the time, however, I learned a lot from it.\nIt also comes with a simple RTS camera system as well as a research document.",
+    "link": "https://github.com/Howest-DAE-GD/gpp-researchtopic-SebastianMaxG",
+    "Tags": [
+      "Unreal Engine",
+      "C++"
+    ]
+  },
+  {
+    "title": "Poseidon's Moving Company",
+    "image": "Resources/PoMoCo.png",
+    "alt": "PoMoCo",
+    "description": "This is a GameJam project where we had to make a game in 2 and a half days.\nThe theme of the game jam was 'Keep it moving.'\n\nWe decided to make a game where you play as a moving company that makes use of sharks. The reason for this is that sharks never stop moving.\nThe game is a 2D game where you have to pick up boxes and furniture and bring them to the moving van.\nThe twist is that you have to do this while avoiding the walls because you shouldn't damage the furniture.\n\nWe worked in a team of 6 people, 2 artists, 3 programmers, and 1 sound designer.\nThe game was made in Godot and also my first time using this engine.",
+    "link": "https://akadeax.itch.io/poseidons-moving-company",
+    "Tags": [
+      "Godot"
+    ]
+  },
+  {
+    "title": "Vulcan + Bullet Physics Visualizer",
+    "image": "Resources/Phys.gif",
+    "alt": "PhysVis",
+    "description": "This project involved creating a visualizer for the Bullet Physics engine using the Vulkan graphics API. The visualizer displays physics objects in the scene along with their acceleration and velocity vectors. It integrates the Bullet Physics engine with Vulkan and uses CMake for building the project.\n\nOne of the key features is the inclusion of a remesher for concave objects, ensuring accurate collision detection for all models. This project provided valuable experience in integrating multiple libraries and understanding how to use them together effectively.",
+    "link": "https://github.com/SebastianMaxG/Vulkan-Physics-Visualizer",
+    "Tags": [
+      "C++",
+      "Vulkan",
+      "Bullet Physics",
+      "Cmake"
+    ]
+  },
+  {
+    "title": "Github Page",
+    "image": "Resources\\github-pages.png",
+    "alt": "This Page",
+    "description": "I made this simple webpage from scratch. It loads all my projects from a json file and I wanted an easy way to add, remove and edit projects.\r\n\r\nTo do this I made a simple WPF tool to implement these features.",
+    "link": null,
+    "Tags": [
+      "HTML",
+      "JavaScript",
+      "CSS",
+      " WPF",
+      " C#"
+    ]
+  }
 ]
