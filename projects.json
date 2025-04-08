@@ -40,6 +40,33 @@
     ]
   },
   {
+    "title": "Precision Car Launcher",
+    "image": "Resources\\launcher.gif",
+    "alt": "Launcher",
+    "description": "This was a group project that tasked us to create a launcher to launch that vehicle to a platform at variable distances (4->10m with a step size of 0.5m).\r\nThe 2 parts I did independently were all the electronics and calculations. \r\n\r\nI created a python script to calculate the force needed to propel the vehicle to the platform + loss, the distance the spring needed to retract and finally the steps/rotations needed for the stepper-motor. After testing and confirming, I transferred this logic to an arduino to control the launcher. Finally, after building the device with the team, I installed the electronics and fine-tuned it to the correct loss factor. \r\nAs a bonus task, I also made a Bluetooth app to control the launcher. It allowed you to pick the distance and had some fine-tuning buttons along with a launch button.\r\n\r\nThis was an extremely fun project and was one of my best memories during my time studying industrial engineering. We also had the best scores overall in the contest and ultimately became 3rd in the bonus round due to adding 500g of weight to the vehicle, making gravity launchers function the same as before.",
+    "link": null,
+    "Tags": [
+      "Python",
+      "Arduino",
+      "App",
+      "Electronics"
+    ]
+  },
+  {
+    "title": "Github Page",
+    "image": "Resources\\github-pages.png",
+    "alt": "This Page",
+    "description": "I made this simple webpage from scratch. It loads all my projects from a json file and I wanted an easy way to add, remove and edit projects.\r\n\r\nTo do this I made a simple WPF tool to implement these features.",
+    "link": "https://github.com/SebastianMaxG/SebastianMaxG.github.io",
+    "Tags": [
+      "HTML",
+      "JavaScript",
+      "CSS",
+      "WPF",
+      "C#"
+    ]
+  },
+  {
     "title": "Rage In The Office",
     "image": "Resources/RITO.png",
     "alt": "Rage In The Office",
@@ -93,20 +120,6 @@
       "Vulkan",
       "Bullet Physics",
       "Cmake"
-    ]
-  },
-  {
-    "title": "Github Page",
-    "image": "Resources\\github-pages.png",
-    "alt": "This Page",
-    "description": "I made this simple webpage from scratch. It loads all my projects from a json file and I wanted an easy way to add, remove and edit projects.\r\n\r\nTo do this I made a simple WPF tool to implement these features.",
-    "link": "https://github.com/SebastianMaxG/SebastianMaxG.github.io",
-    "Tags": [
-      "HTML",
-      "JavaScript",
-      "CSS",
-      "WPF",
-      "C#"
     ]
   }
 ]
