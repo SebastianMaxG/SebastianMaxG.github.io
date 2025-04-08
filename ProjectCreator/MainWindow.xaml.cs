@@ -78,8 +78,16 @@ namespace ProjectCreator
                 ImageAlt = AltImage.Text,
                 Description = Description.Text,
                 Link = (Link.Text == "" ? null : Link.Text),
-                Tags = Tags.Text.Split(';').ToList()
+                Tags = new List<string>()
             };
+
+            if (Tags.Text != "")
+            {
+                var tags = Tags.Text.Split(';').ToList();
+                tags = tags.Where(t => !string.IsNullOrWhiteSpace(t)).Select(t => t.Trim()).ToList();
+                project.Tags = tags;
+            }
+
             var existingProject = projects.FirstOrDefault(p => p.Title == project.Title);
             if (existingProject != null)
             {
@@ -104,7 +112,7 @@ namespace ProjectCreator
                     AltImage.Text = selectedProject.ImageAlt;
                     Description.Text = selectedProject.Description;
                     Link.Text = selectedProject.Link;
-                    Tags.Text = string.Join("; ", selectedProject.Tags);
+                    Tags.Text = string.Join(";", selectedProject.Tags);
                 }
             }
         }
@@ -113,7 +121,7 @@ namespace ProjectCreator
         {
             if (Tags.Text != "" && Tags.Text.Last() != ';')
             {
-                Tags.Text += "; " + AllTags.SelectedItem.ToString();
+                Tags.Text += ";" + AllTags.SelectedItem.ToString();
             }
             else
             {
