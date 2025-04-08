@@ -100,7 +100,7 @@
     "image": "Resources\\github-pages.png",
     "alt": "This Page",
     "description": "I made this simple webpage from scratch. It loads all my projects from a json file and I wanted an easy way to add, remove and edit projects.\r\n\r\nTo do this I made a simple WPF tool to implement these features.",
-    "link": null,
+    "link": "https://github.com/SebastianMaxG/SebastianMaxG.github.io",
     "Tags": [
       "HTML",
       "JavaScript",
