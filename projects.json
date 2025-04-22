@@ -93,7 +93,7 @@
     "image": "Resources/research.gif",
     "alt": "Research Project",
     "description": "In this project, I researched how to make a formation movement system for a game.\nThis was also my first time making an almost fully C++ Unreal project.\n\nThe project allows you to select a group of units and then move them around in a formation.\nYou can specify the formation as well as rotation and the units will move to the correct position in the formation.\nThe project makes use of the Unreal Engine's AI system to move the units to the specified position.\nThis was a challenging project at the time, however, I learned a lot from it.\nIt also comes with a simple RTS camera system as well as a research document.",
-    "link": "https://github.com/Howest-DAE-GD/gpp-researchtopic-SebastianMaxG",
+    "link": "https://github.com/SebastianMaxG/RTS-Movement-Research",
     "Tags": [
       "Unreal Engine",
       "C++"
