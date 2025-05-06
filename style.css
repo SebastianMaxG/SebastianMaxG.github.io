@@ -14,8 +14,9 @@
 
 body {
     font-family: 'Poppins', sans-serif;
-    background-color: var(--dark);
-    background: linear-gradient(135deg, var(--dark) 0%, rgba(110, 0, 255, 0.2) 100%);
+    background: linear-gradient(45deg, var(--dark) 0%, #260057 200%);
+    background-attachment: fixed;
+    position: relative;
     color: var(--light);
     overflow-x: hidden;
     z-index: -10;
@@ -27,7 +28,18 @@ h1, h2, h3, .navbar-brand {
     text-transform: uppercase;
     letter-spacing: 1px;
     color: var(--light);
+    text-align: center;
+    display: block;
 }
+
+p{
+    font-family: 'Poppins', sans-serif;
+    font-weight: 200;
+    color: var(--light);
+    text-align: center;
+    display: block;
+}
+
 
 .navbar {
     background-color: rgba(15, 15, 26, 0.9) !important;
@@ -199,21 +211,6 @@ section {
     flex: 1;
 }
 
-h2 {
-    color: white;
-    text-align: center;
-    display: block;
-}
-h3 {
-    color: white;
-    text-align: center;
-    display: block;
-}
-
-p {
-    color: #ddd;;
-    display: block;
-}
 
 #about {
     text-align: center;
@@ -233,6 +230,7 @@ p {
     gap: 2rem; /* Space between the sidebar and projects */
     margin: 0rem;
     padding: 0rem; /* Remove padding on small screens */
+    color: var(--light);
 }
 
 /* Sidebar styling */
