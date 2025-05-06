@@ -26,6 +26,7 @@ h1, h2, h3, .navbar-brand {
     font-weight: 700;
     text-transform: uppercase;
     letter-spacing: 1px;
+    color: var(--light);
 }
 
 .navbar {
