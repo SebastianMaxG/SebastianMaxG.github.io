@@ -133,15 +133,19 @@ p{
     font-weight: 700;
     padding: 12px 30px;
     border-radius: 30px;
-    transition: all 0.3s ease;
+    transition: all 0.3s ease; /* Smooth transition */
     box-shadow: 0 4px 15px var(--shadow-dark);
+    text-decoration: none; /* Prevent underline */
+    display: inline-block; /* Ensure proper layout */
+    position: relative; /* Allow transform to work properly */
 }
 
-    .btn-portfolio:hover {
-        transform: translateX(0px) translateY(-2px);
-        box-shadow: 0 6px 20px var(--shadow-light);
-        color: var(--dark);
-    }
+.btn-portfolio:hover {
+    transform: translateY(-5px); /* Move up slightly on hover */
+    box-shadow: 0 6px 20px var(--shadow-light); /* Add a stronger shadow */
+    color: var(--dark);
+    text-decoration: none; /* Prevent underline on hover */
+}
 
 @media (max-width: 768px) {
     .hero-title {
