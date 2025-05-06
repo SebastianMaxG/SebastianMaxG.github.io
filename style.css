@@ -12,14 +12,18 @@
     --border: rgba(161, 68, 242, 0.2);
 }
 
-body {
+body, .background {
     font-family: 'Poppins', sans-serif;
-    background: linear-gradient(45deg, var(--dark) 0%, #260057 200%);
-    background-attachment: fixed;
+    background-color: var(--dark);
     position: relative;
     color: var(--light);
     overflow-x: hidden;
     z-index: -10;
+}
+
+.gradient-bg {
+    background: linear-gradient(110deg, var(--dark) 0%, rgba(110, 0, 255, 0.2) 100%);
+    position: relative;
 }
 
 h1, h2, h3, .navbar-brand {
