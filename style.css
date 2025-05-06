@@ -6,6 +6,7 @@
     --primary-transparent: rgba(161, 68, 242, 0.8);
     --secondary-transparent: rgba(154, 201, 179, 0.8);
     --dark: #0f0f1a;
+    --gray: #1c1c2a;
     --light: #f8f9fa;
     --shadow-light: rgba(110, 0, 255, 0.6);
     --shadow-dark: rgba(110, 0, 255, 0.4);
@@ -191,7 +192,7 @@ p{
 
 
   .about-text{
-    background-color: #0f0f1a93;
+    background-color: rgba(15, 15, 26, 0.6);
     border-radius: 30px;
   }
 /* end new */
@@ -259,7 +260,7 @@ section {
 
 .project {
     transition: transform 0.3s ease; /* Smooth transition for hover scaling */
-    background-color: rgb(37, 37, 37);
+    background-color: var(--gray);
     padding: 2rem;
     margin-bottom: 2rem;
     margin-left: 0px;
