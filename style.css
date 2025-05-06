@@ -137,11 +137,11 @@ p{
     box-shadow: 0 4px 15px var(--shadow-dark);
 }
 
-.btn-portfolio:hover {
-    transform: translateY(-3px);
-    box-shadow: 0 6px 20px var(--shadow-light);
-    color: var(--dark);
-}
+    .btn-portfolio:hover {
+        transform: translateX(0px) translateY(-2px);
+        box-shadow: 0 6px 20px var(--shadow-light);
+        color: var(--dark);
+    }
 
 @media (max-width: 768px) {
     .hero-title {
