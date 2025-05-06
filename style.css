@@ -341,7 +341,6 @@ footer {
 .preserve-whitespace {
     white-space: pre-line;
 }
-
 @media (max-width: 800px) {
     header nav ul li {
         display: block;
@@ -361,10 +360,10 @@ footer {
         padding: 0; /* Remove padding on small screens */
     }
     .project-grid {
-        width: calc(95vw); /* Full width minus padding */
+        width: calc(87vw); /* Full width minus padding */
     }
     .project {
-        width: calc(100% - 4rem); /* Full width minus padding */
+        width: calc(95% - 4rem); /* Full width minus padding */
         margin: 0; 
     }
     .sidebar {
