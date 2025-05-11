@@ -104,7 +104,7 @@
     "image": "Resources/PoMoCo.png",
     "alt": "PoMoCo",
     "description": "This is a GameJam project where we had to make a game in 2 and a half days.\nThe theme of the game jam was 'Keep it moving.'\n\nWe decided to make a game where you play as a moving company that makes use of sharks. The reason for this is that sharks never stop moving.\nThe game is a 2D game where you have to pick up boxes and furniture and bring them to the moving van.\nThe twist is that you have to do this while avoiding the walls because you shouldn't damage the furniture.\n\nWe worked in a team of 6 people, 2 artists, 3 programmers, and 1 sound designer.\nThe game was made in Godot and also my first time using this engine.",
-    "link": "https://akadeax.itch.io/poseidons-moving-company",
+    "link": "https://github.com/Akadeax/unwrap-jam-2024",
     "Tags": [
       "Godot"
     ]
