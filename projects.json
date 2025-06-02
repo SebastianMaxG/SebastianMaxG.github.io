@@ -3,7 +3,7 @@
     "title": "Internship Cyborn as Tool Developer",
     "image": "Resources/Intern.png",
     "alt": "Unpaid Intern",
-    "description": "Note: I am under NDA and can't disclose too much information.\n\nIn my internship at Cyborn, I worked on Unreal Engine 5 Source engine additions as well as a custom tool for the company.\nOther than that I worked on a WPF Software Distribution System as well as creating a Launchpad for internal tools, along with other tools.\n\nI learned a lot about the Unreal Engine and how to work with large codebases.\nI have also learned a bit more about how to work in a professional environment. Overall, I am gaining more experience in tool programming, an area I had limited exposure to during my education at DAE.",
+    "description": "Note: I am under NDA and can't disclose too much information.\r\n\r\nIn my internship at Cyborn, I worked on Unreal Engine 5 Source engine additions as well as a custom tools for the company.\r\nSome of the projects I have woked on:\r\n- WPF Software Distribution System\r\n- Launchpad for internal tools\r\n- Centralized Logging System\r\n- Jenkins Pipeline for automatic localization\r\n- UE Plugin that allows hiding of Folders in the Content Browser\r\n- ...\r\n\r\nI learned a lot about the Unreal Engine and how to work with large codebases.\r\nI have also learned a bit more about how to work in a professional environment. Overall, I am gaining more experience in tool programming, an area I had limited exposure to during my education at DAE.",
     "link": null,
     "Tags": [
       "Unreal Engine",
@@ -12,7 +12,8 @@
       "WPF",
       "Python",
       ".bat",
-      "Console"
+      "Console",
+      "Jenkins"
     ]
   },
   {

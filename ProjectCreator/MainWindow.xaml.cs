@@ -50,23 +50,36 @@ namespace ProjectCreator
 
             string imagePath = ImagePath.Text;
             string imageName = System.IO.Path.GetFileName(imagePath);
-            string newImagePath = System.IO.Path.Combine("Resources", imageName);
+            string newImagePath = System.IO.Path.Combine("Resources", imageName).Replace('\\','/');
 
             if (!Directory.Exists("Resources"))
             {
                 Directory.CreateDirectory("Resources");
             }
+            if (!File.Exists(imagePath))
+            {
+                MessageBox.Show($"Image [{imagePath}] does not exist. Please select a valid image.");
+                return;
+            }
             if (File.Exists(newImagePath))
             {
                 if (newImagePath != imagePath)
                 {
+                    //create a messagebox to ask if the user wants to overwrite the existing image
+                    var result = MessageBox.Show($"Image [{newImagePath}] already exists. Do you want to overwrite it?", "Overwrite Image", MessageBoxButton.YesNo);
+                    if (result == MessageBoxResult.No)
+                    {
+                        MessageBox.Show("Please select a different image.");
+                        return;
+                    }
+
                     File.Delete(newImagePath);
                     File.Copy(imagePath, newImagePath);
                     ImagePath.Text = newImagePath;
                 }
             }
             else
-            {
+            {                
                 File.Copy(imagePath, newImagePath);
                 ImagePath.Text = newImagePath;
             }
@@ -88,16 +101,20 @@ namespace ProjectCreator
                 project.Tags = tags;
             }
 
-            var existingProject = projects.FirstOrDefault(p => p.Title == project.Title);
-            if (existingProject != null)
+            var existingIndex = projects.FindIndex(p => p.Title == project.Title);
+            if (existingIndex != -1)
             {
-                projects.Remove(existingProject);
+                projects[existingIndex] = project; // Replace the existing project
             }
-            projects.Add(project);
+            else
+            {
+                projects.Add(project);
+            }
 
             var jsonString = Newtonsoft.Json.JsonConvert.SerializeObject(projects, Newtonsoft.Json.Formatting.Indented);
             UpdateProjectsAndTags();
             File.WriteAllText(jsonFilePath, jsonString);
+            MessageBox.Show("Project saved successfully!");
         }
 
         private void EditProject_Click(object sender, RoutedEventArgs e)
