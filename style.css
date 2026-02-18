@@ -273,7 +273,7 @@ section {
     border-radius: 30px;
     transition: transform 0.3s ease;
     display: block;
-    width: calc(33% - 1rem); /* Full width minus padding */
+    width: calc(50% - 1rem); /* 2 projects per row */
     /* max-width: 400px; Limit the width to 400px */
     z-index: 0;
 }
@@ -378,12 +378,7 @@ footer {
 }
 @media (max-width: 1500px) {
     .project {
-        width: calc(50% - 1rem);
-    }
-}
-@media (max-width: 1200px) {
-    .project {
-        width: calc(100% - 1rem); /* Full width minus padding */
+        width: calc(100% - 1rem);
     }
 }
 .tag {
