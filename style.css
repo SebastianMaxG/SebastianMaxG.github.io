@@ -381,6 +381,30 @@ footer {
         width: calc(100% - 1rem);
     }
 }
+@media (max-width: 1200px) {
+    /*move projects below the work experience*/
+    .main-container {
+        display: grid;
+        grid-template-columns: 400px 1fr;
+        gap: 2rem;
+    }
+    
+    .sidebar {
+        grid-column: 1;
+        grid-row: 1 / -1;
+        position: sticky;
+    }
+    
+    #work {
+        grid-column: 2;
+        grid-row: 1;
+    }
+    
+    #projects {
+        grid-column: 2;
+        grid-row: 2;
+    }
+}
 .tag {
     display: inline-block;
     background-color: var(--primary-transparent);
