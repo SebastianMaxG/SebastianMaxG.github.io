@@ -382,73 +382,29 @@ footer {
         width: calc(100% - 1rem);
     }
 }
-@media (max-width: 1200px) {
-    /*move projects below the work experience*/
+@media (min-width: 801px) and (max-width: 1200px) {
+    /* move projects below the work experience on medium screens (801px–1200px)
+       keeps small screens (<=800px) using the stacked column layout */
     .main-container {
         display: grid;
         grid-template-columns: 400px 1fr;
         gap: 2rem;
     }
-    
+
     .sidebar {
         grid-column: 1;
         grid-row: 1 / -1;
         position: sticky;
     }
-    
+
     #work {
         grid-column: 2;
         grid-row: 1;
     }
-    
+
     #projects {
         grid-column: 2;
         grid-row: 2;
-    }
-}
-@media (min-width: 1201px) {
-    /* Make the work section a separate scrollbox and sticky on wide screens */
-    #work {
-        position: sticky;
-        top: 5rem; /* align with navbar */
-        max-height: calc(100vh - 7.5rem);
-        overflow-y: auto;
-        padding-right: 1rem;
-        background: transparent;
-    }
-
-    /* Ensure internal spacing doesn't collapse when boxed */
-    .work-experience {
-        display: block;
-    }
-
-    /* Keep sidebar sticky as before */
-    .sidebar {
-        position: sticky;
-        top: 5rem;
-        height: fit-content;
-    }
-    /* Custom scrollbar for Chromium-based browsers and WebKit */
-    #work::-webkit-scrollbar {
-        width: 12px;
-    }
-    #work::-webkit-scrollbar-track {
-        background: rgba(255,255,255,0.03);
-        border-radius: 10px;
-    }
-    #work::-webkit-scrollbar-thumb {
-        background: linear-gradient(180deg, var(--primary) 0%, var(--secondary) 100%);
-        border-radius: 10px;
-        border: 3px solid rgba(0,0,0,0.08);
-    }
-    #work::-webkit-scrollbar-thumb:hover {
-        filter: brightness(0.95);
-    }
-
-    /* Firefox scrollbar styling */
-    #work {
-        scrollbar-width: thin;
-        scrollbar-color: var(--primary) rgba(255,255,255,0.03);
     }
 }
 .tag {
