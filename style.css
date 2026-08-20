@@ -250,6 +250,25 @@ section {
     height: fit-content; /* Adjust height to fit content */
 }
 
+/* Sidebar sections stack, so the default `section` padding of 2rem doubles up
+   at the seam between them. Trim the vertical padding and let only the section
+   above pay for the gap. */
+.sidebar section {
+    padding: 1rem 2rem;
+}
+
+.sidebar section + section {
+    padding-top: 0.5rem;
+}
+
+.sidebar section p:last-child {
+    margin-bottom: 0;
+}
+
+.sidebar h2 {
+    margin-bottom: 1rem;
+}
+
 .project-grid {
     display: block; /* Masonry requires block display */
 }
