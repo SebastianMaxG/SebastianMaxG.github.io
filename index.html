@@ -3,7 +3,66 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Leander Flossie | Game Developer Portfolio</title>
+    <title>Leander Flossie | Embedded Software Engineer</title>
+    <meta name="description" content="Embedded software engineer working in C++, Qt and embedded Linux. Portfolio of hardware, tooling and engine projects by Leander Flossie.">
+    <meta name="author" content="Leander Flossie">
+    <link rel="canonical" href="https://sebastianmaxg.github.io/">
+
+    <!-- Link preview (LinkedIn, Slack, email, Discord) -->
+    <meta property="og:type" content="website">
+    <meta property="og:site_name" content="Leander Flossie">
+    <meta property="og:url" content="https://sebastianmaxg.github.io/">
+    <meta property="og:title" content="Leander Flossie | Embedded Software Engineer">
+    <meta property="og:description" content="Embedded software engineer working in C++, Qt and embedded Linux. Portfolio of hardware, tooling and engine projects.">
+    <meta property="og:image" content="https://sebastianmaxg.github.io/Resources/Me3.jpg">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Leander Flossie | Embedded Software Engineer">
+    <meta name="twitter:description" content="Embedded software engineer working in C++, Qt and embedded Linux. Portfolio of hardware, tooling and engine projects.">
+    <meta name="twitter:image" content="https://sebastianmaxg.github.io/Resources/Me3.jpg">
+
+    <!-- Favicon: inline SVG, no extra request -->
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' rx='6' fill='%230f0f1a'/><text x='16' y='23' font-family='monospace' font-size='18' font-weight='bold' text-anchor='middle' fill='%234eacbe'>LF</text></svg>">
+
+    <!-- Structured data: tells search engines that "Leander Flossie" and "SebastianMaxG" are the same person -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Person",
+      "name": "Leander Flossie",
+      "alternateName": ["Leander Sebastian Max Flossie", "SebastianMaxG", "SebastianMax"],
+      "jobTitle": "Embedded Software Engineer",
+      "url": "https://sebastianmaxg.github.io/",
+      "image": "https://sebastianmaxg.github.io/Resources/Me3.jpg",
+      "email": "leander.flossie@icloud.com",
+      "telephone": "+32470858304",
+      "worksFor": {
+        "@type": "Organization",
+        "name": "Invisto"
+      },
+      "alumniOf": {
+        "@type": "CollegeOrUniversity",
+        "name": "Howest University of Applied Sciences",
+        "department": "Digital Arts and Entertainment"
+      },
+      "knowsAbout": [
+        "Embedded Systems",
+        "C++",
+        "Qt",
+        "Embedded Linux",
+        "Yocto",
+        "CAN bus",
+        "Python",
+        "Tool Programming"
+      ],
+      "sameAs": [
+        "https://www.linkedin.com/in/leander-flossie-82068b253",
+        "https://github.com/SebastianMaxG",
+        "https://sebastianmax.itch.io/",
+        "https://www.thingiverse.com/SebastianMaxG"
+      ]
+    }
+    </script>
+
     <link rel="stylesheet" href="style.css">
     <script src="https://unpkg.com/masonry-layout@4/dist/masonry.pkgd.min.js"></script>
     <script src="https://unpkg.com/imagesloaded@4/imagesloaded.pkgd.min.js"></script>
@@ -118,7 +177,7 @@
             <div class="row">
                 <div class="col-lg-8 mx-auto text-center">
                     <h1 class="hero-title py-3">Leander Flossie</h1>
-                    <p class="hero-subtitle">Game Developer | Hardware &amp; Tool Programming Specialist</p>
+                    <p class="hero-subtitle">Embedded Software Engineer | C++ &middot; Qt &middot; Embedded Linux &middot; Hardware</p>
                     <a href="#projects" class="btn-portfolio" style="margin:25px;">Explore My Work</a>
                     <a href="mailto:leander.flossie@icloud.com" class="btn-portfolio">Contact me</a>
                 </div>
@@ -288,14 +347,15 @@
                 <div class="col-lg-6 col-md-8 p-1 about-text" style="color: var(--light); z-index: 1;">
                     <h2 class="mb-4 p-4">About Me</h2>
                     <p class="preserve-whitespace p-4">
-                        Hi, I'm a Digital Arts and Entertainment (DAE) Game Development alumnus. 
-                        I now have 6 months experience at Invisto a company specialized in creating integrated UI solutions for the machine building industry.
+                        Hi, I'm an embedded software engineer with 1 year of experience at Invisto, a company specialized in creating integrated UI solutions for the machine building industry.
+                        I work across the full stack there, from embedded Linux build systems up to the operator-facing UI.
+                        I'm also a Digital Arts and Entertainment (DAE) Game Development alumnus.
 
                         My passion lies in <strong>hardware and tool programming</strong>, where I enjoy blending creativity with technical expertise.
                         I am particularly interested in working with innovative technologies and applying engineering principles into my projects.
     
-                        On this site, you'll find a collection of my work, showcasing my skills in engine development, tool programming, and other projects.
-                        I'm always eager to collaborate on projects that challenge me to grow and make a meaningful impact in the gaming or real world.
+                        On this site, you'll find a collection of my work, showcasing my skills in embedded development, tool programming, and engine development.
+                        I'm always eager to take on projects that challenge me to grow and put working software in front of real users and real machines.
 
                         Feel free to explore my portfolio and get in touch!
                     </p>
@@ -311,20 +371,21 @@
 
     <div class="main-container" >
         <aside class="sidebar">
+            <section id="contact">
+                <h2>Contact</h2>
+                <p><i class="fa-solid fa-phone"></i> <a class="link"  href="tel:+32470858304">+32 470 85 83 04</a></p>
+                <p><i class="fa-solid fa-envelope"></i> <a class=" link" href="mailto:leander.flossie@icloud.com">leander.flossie@icloud.com</a></p>
+                <p><i class="fa-brands fa-linkedin"></i> <a class="link" href="https://www.linkedin.com/in/leander-flossie-82068b253" target="_blank">linkedin.com/in/leander-flossie</a></p>
+                <p><i class="fa-brands fa-github"></i> <a class="link" href="https://github.com/sebastianmaxg" target="_blank">github.com/SebastianMaxG</a></p>
+                <p><i class="fa-solid fa-cubes"></i> <a class="link" href="https://www.thingiverse.com/SebastianMaxG" target="_blank">thingiverse.com/SebastianMaxG</a></p>
+                <p><i class="fa-brands fa-itch-io"></i> <a class="link" href="https://sebastianmax.itch.io/" target="_blank">SebastianMax.itch.io</a></p>
+            </section>
+            
             <section id="skills">
                 <h2 class="mb-4 p-4">Skills</h2>
                 <div class="tags" id="skills-container">
                     <!-- Skills will be dynamically generated here -->
                 </div>
-            </section>
-    
-            <section id="contact">
-                <h2>Contact</h2>
-                <p><i class="fa-solid fa-envelope"></i> <a class=" link" href="mailto:leander.flossie@icloud.com">leander.flossie@icloud.com</a></p>
-                <p><i class="fa-brands fa-linkedin"></i> <a class="link" href="https://www.linkedin.com/in/leander-flossie-82068b253" target="_blank">linkedin.com/in/leander-flossie</a></p>
-                <p><i class="fa-brands fa-github"></i> <a class="link" href="https://github.com/sebastianmaxg" target="_blank">github.com/SebastianMaxG</a></p>
-                <p><i class="fa-brands fa-itch-io"></i> <a class="link" href="https://sebastianmax.itch.io/" target="_blank">SebastianMax.itch.io</a></p>
-                <p><i class="fa-solid fa-phone"></i> <a class="link"  href="tel:+32470858304">+32 470 85 83 04</a></p>
             </section>
         </aside>
 
@@ -333,29 +394,40 @@
                 <div class="work-experience">
                     <div class="job" style="margin-top: 20px;">
                         <h3>Invisto</h3>
-                        <p><em>Software Engineer</em></p>
+                        <p><em>Embedded Software Engineer</em></p>
                         <p><em>September 2025 - Present</em></p>
                         <div class="tags">
                             <span class="tag">C++</span>
                             <span class="tag">Qt</span>
                             <span class="tag">Python</span>
                             <span class="tag">Embedded Systems</span>
+                            <span class="tag">Linux</span>
                             <span class="tag">UI Development</span>
                             <span class="tag">Cross-compilation</span>
+                            <span class="tag">Raspberry Pi</span>
+                            <span class="tag">CAN Communication</span>
+                            <span class="tag">Rauc</span>
+                            <span class="tag">Yocto</span>
+                            <span class="tag">Docker</span>
+                            <span class="tag">3D Modeling</span>
+
                         </div>
                         <ul>
                             <li>Developed and maintained integrated UI solutions for machine builders, enhancing user experience and functionality.</li>
                             <li>Collaborated with cross-functional teams to design and implement software features that meet client requirements.</li>
-                            <li>Utilized C++ & QT to create efficient and scalable applications, ensuring high performance and reliability.</li>
+                            <li>Utilized C++ &amp; Qt to create efficient and scalable applications, ensuring high performance and reliability.</li>
                             <li>Created custom cross-compilation toolchains for embedded systems, enabling deployment across multiple hardware platforms.</li>
+                            <li>Implemented CAN communication protocols to facilitate seamless interaction between software and hardware components.</li>
+                            <li>Worked with Rauc and Yocto to manage software updates and build embedded Linux systems for various devices.</li>
+                            <li>Provided expertise with prototyping using 3D modeling and printing.</li>
                         </ul>
                         <!-- add some personal notes-->
                         <div class="personal-notes">
                             <p>
-                                This role has allowed me to work with a <strong>wide range of systems</strong> and gain valuable experience in software development within industrial environments.
+                                This role has allowed me to work with a <strong>wide range of systems</strong> and gain valuable experience in software development within industrial environments. As well as taking ownership of my own projects and seeing them through from concept to deployment, which has been incredibly rewarding.
                             </p>
                             <p>
-                                As a service company, Invisto positions me one step removed from the hardware and its constraints. This experience has clarified my career direction—I'm more interested in working <strong>directly with hardware and embedded systems</strong>.
+                                Building for a broad range of client platforms has shown me where I want to go deeper: working <strong>directly with hardware and embedded systems</strong>, close to the constraints that shape the software.
                             </p>
                         </div>
                     </div>
@@ -392,9 +464,9 @@
                         </div>
                     </div>
                     <div class="job" style="margin-top: 20px;">
-                        <h3>Paragon Netherlands & Belgium</h3>
+                        <h3>Paragon Netherlands &amp; Belgium</h3>
                         <p><em>Web Developer</em></p>
-                        <p><em>july 2023 - august 2023</em></p>
+                        <p><em>July 2023 - August 2023</em></p>
                         <div class="tags">
                             <span class="tag">C#</span>
                             <span class="tag">.NET</span>
@@ -422,7 +494,7 @@
     </div>
 
     <footer>
-        <p>&copy; 2026 Leander Flossie</p>
+        <p>&copy; 2026 Leander Sebastian Max Flossie</p>
     </footer>
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
     <script>

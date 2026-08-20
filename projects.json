@@ -1,14 +1,15 @@
 [
   {
-    "title": "Gradwork: Optical Character Recognition",
-    "image": "Resources/Gradwork.jpg",
-    "alt": "Gradwork",
-    "description": "For my graduation project, I implemented an Optical Character Recognition (OCR) system that recognizes text from images for use in a Magic System.\n\nThe system is built using the Tesseract OCR engine and a custom neural network trained on a dataset using a Runic alphabet Font.\nI trained multiple models using tesstrain and the Tesseract OCR engine inside of a Linux Ubuntu.\n\nThe reason I took this project is that I wanted to learn more about neural networks and how to implement them in a real-world scenario.\nAs well as my interest in creating a magic system that uses runes allowing players to learn and create their own spells.",
+    "title": "Precision Car Launcher",
+    "image": "Resources\\launcher.gif",
+    "alt": "Launcher",
+    "description": "This was a group project that tasked us to create a launcher to launch that vehicle to a platform at variable distances (4->10m with a step size of 0.5m).\r\nThe 2 parts I did independently were all the electronics and calculations. \r\n\r\nI created a python script to calculate the force needed to propel the vehicle to the platform + loss, the distance the spring needed to retract and finally the steps/rotations needed for the stepper-motor. After testing and confirming, I transferred this logic to an arduino to control the launcher. Finally, after building the device with the team, I installed the electronics and fine-tuned it to the correct loss factor. \r\nAs a bonus task, I also made a Bluetooth app to control the launcher. It allowed you to pick the distance and had some fine-tuning buttons along with a launch button.\r\n\r\nThis was an extremely fun project and was one of my best memories during my time studying industrial engineering. We also had the best scores overall in the contest and ultimately became 3rd in the bonus round due to adding 500g of weight to the vehicle, making gravity launchers function the same as before.",
     "link": null,
     "Tags": [
       "Python",
-      "Tesseract-OCR",
-      "Linux WSL"
+      "Arduino",
+      "App",
+      "Electronics"
     ]
   },
   {
@@ -24,41 +25,16 @@
     ]
   },
   {
-    "title": "Precision Car Launcher",
-    "image": "Resources\\launcher.gif",
-    "alt": "Launcher",
-    "description": "This was a group project that tasked us to create a launcher to launch that vehicle to a platform at variable distances (4->10m with a step size of 0.5m).\r\nThe 2 parts I did independently were all the electronics and calculations. \r\n\r\nI created a python script to calculate the force needed to propel the vehicle to the platform + loss, the distance the spring needed to retract and finally the steps/rotations needed for the stepper-motor. After testing and confirming, I transferred this logic to an arduino to control the launcher. Finally, after building the device with the team, I installed the electronics and fine-tuned it to the correct loss factor. \r\nAs a bonus task, I also made a Bluetooth app to control the launcher. It allowed you to pick the distance and had some fine-tuning buttons along with a launch button.\r\n\r\nThis was an extremely fun project and was one of my best memories during my time studying industrial engineering. We also had the best scores overall in the contest and ultimately became 3rd in the bonus round due to adding 500g of weight to the vehicle, making gravity launchers function the same as before.",
-    "link": null,
+    "title": "Vulkan + Bullet Physics Visualizer",
+    "image": "Resources/Phys.gif",
+    "alt": "PhysVis",
+    "description": "This project involved creating a visualizer for the Bullet Physics engine using the Vulkan graphics API. The visualizer displays physics objects in the scene along with their acceleration and velocity vectors. It integrates the Bullet Physics engine with Vulkan and uses CMake for building the project.\n\nOne of the key features is the inclusion of a remesher for concave objects, ensuring accurate collision detection for all models. This project provided valuable experience in integrating multiple libraries and understanding how to use them together effectively.",
+    "link": "https://github.com/SebastianMaxG/Vulkan-Physics-Visualizer",
     "Tags": [
-      "Python",
-      "Arduino",
-      "App",
-      "Electronics"
-    ]
-  },
-  {
-    "title": "Github Page",
-    "image": "Resources\\github-pages.png",
-    "alt": "This Page",
-    "description": "I made this simple webpage from scratch. It loads all my projects from a json file and I wanted an easy way to add, remove and edit projects.\r\n\r\nTo do this I made a simple WPF tool to implement these features.",
-    "link": "https://github.com/SebastianMaxG/SebastianMaxG.github.io",
-    "Tags": [
-      "HTML",
-      "JavaScript",
-      "CSS",
-      "WPF",
-      "C#"
-    ]
-  },
-  {
-    "title": "Rage In The Office",
-    "image": "Resources/RITO.png",
-    "alt": "Rage In The Office",
-    "description": "This was a group project with a team of 2 programmers and 2 artists, me being one of the 2 programmers.\n\nOne of the main challenges at the start of the project is that we wanted to have the objects shatter from damage applied to them.\nHowever, we had no idea how to do this. After some research, we found out that we could use the chaos physics system in Unreal Engine 5.\nThis is a beta feature and didn't have much documentation on it as well as the fact that it isn't made for games.\nTo solve this we used a basic system where we would spawn a chaos object in the place of the old one when it got destroyed since chaos objects didn't allow for dynamic movement from external sources. (Example: a player picking it up)\n\n From this project, I learned to deal with minimal documentation and how to work with a team of artists.",
-    "link": "https://sebastianmax.itch.io/rageintheoffice",
-    "Tags": [
-      "Unreal Engine",
-      "C++"
+      "C++",
+      "Vulkan",
+      "Bullet Physics",
+      "CMake"
     ]
   },
   {
@@ -73,11 +49,34 @@
     ]
   },
   {
+    "title": "Gradwork: Optical Character Recognition",
+    "image": "Resources/Gradwork.jpg",
+    "alt": "Gradwork",
+    "description": "For my graduation project, I implemented an Optical Character Recognition (OCR) system that recognizes text from images for use in a Magic System.\n\nThe system is built using the Tesseract OCR engine and a custom neural network trained on a dataset using a Runic alphabet Font.\nI trained multiple models using tesstrain and the Tesseract OCR engine inside of a Linux Ubuntu.\n\nThe reason I took this project is that I wanted to learn more about neural networks and how to implement them in a real-world scenario.\nAs well as my interest in creating a magic system that uses runes allowing players to learn and create their own spells.",
+    "link": null,
+    "Tags": [
+      "Python",
+      "Tesseract-OCR",
+      "Linux WSL"
+    ]
+  },
+  {
     "title": "Formation Movement Research",
     "image": "Resources/research.gif",
     "alt": "Research Project",
     "description": "In this project, I researched how to make a formation movement system for a game.\nThis was also my first time making an almost fully C++ Unreal project.\n\nThe project allows you to select a group of units and then move them around in a formation.\nYou can specify the formation as well as rotation and the units will move to the correct position in the formation.\nThe project makes use of the Unreal Engine's AI system to move the units to the specified position.\nThis was a challenging project at the time, however, I learned a lot from it.\nIt also comes with a simple RTS camera system as well as a research document.",
     "link": "https://github.com/SebastianMaxG/RTS-Movement-Research",
+    "Tags": [
+      "Unreal Engine",
+      "C++"
+    ]
+  },
+  {
+    "title": "Rage In The Office",
+    "image": "Resources/RITO.png",
+    "alt": "Rage In The Office",
+    "description": "This was a group project with a team of 2 programmers and 2 artists, me being one of the 2 programmers.\n\nOne of the main challenges at the start of the project is that we wanted to have the objects shatter from damage applied to them.\nHowever, we had no idea how to do this. After some research, we found out that we could use the chaos physics system in Unreal Engine 5.\nThis is a beta feature and didn't have much documentation on it as well as the fact that it isn't made for games.\nTo solve this we used a basic system where we would spawn a chaos object in the place of the old one when it got destroyed since chaos objects didn't allow for dynamic movement from external sources. (Example: a player picking it up)\n\n From this project, I learned to deal with minimal documentation and how to work with a team of artists.",
+    "link": "https://sebastianmax.itch.io/rageintheoffice",
     "Tags": [
       "Unreal Engine",
       "C++"
@@ -94,16 +93,17 @@
     ]
   },
   {
-    "title": "Vulcan + Bullet Physics Visualizer",
-    "image": "Resources/Phys.gif",
-    "alt": "PhysVis",
-    "description": "This project involved creating a visualizer for the Bullet Physics engine using the Vulkan graphics API. The visualizer displays physics objects in the scene along with their acceleration and velocity vectors. It integrates the Bullet Physics engine with Vulkan and uses CMake for building the project.\n\nOne of the key features is the inclusion of a remesher for concave objects, ensuring accurate collision detection for all models. This project provided valuable experience in integrating multiple libraries and understanding how to use them together effectively.",
-    "link": "https://github.com/SebastianMaxG/Vulkan-Physics-Visualizer",
+    "title": "Github Page",
+    "image": "Resources\\github-pages.png",
+    "alt": "This Page",
+    "description": "I made this simple webpage from scratch. It loads all my projects from a json file and I wanted an easy way to add, remove and edit projects.\r\n\r\nTo do this I made a simple WPF tool to implement these features.",
+    "link": "https://github.com/SebastianMaxG/SebastianMaxG.github.io",
     "Tags": [
-      "C++",
-      "Vulkan",
-      "Bullet Physics",
-      "Cmake"
+      "HTML",
+      "JavaScript",
+      "CSS",
+      "WPF",
+      "C#"
     ]
   }
 ]

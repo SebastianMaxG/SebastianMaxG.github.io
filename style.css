@@ -246,7 +246,7 @@ section {
 .sidebar {
     flex: 0 0 400px; /* Fixed width for the sidebar */
     position: sticky;
-    top: 5rem; /* Distance from the top of the viewport */
+    top: 2rem; /* Distance from the top of the viewport */
     height: fit-content; /* Adjust height to fit content */
 }
 
