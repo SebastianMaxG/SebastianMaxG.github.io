@@ -499,6 +499,33 @@ footer {
     margin-top: 10px;
     margin-bottom: 10px;
 }
+
+/* Skills are rendered as one .skill-group per category, so the sidebar reads as
+   labelled sections instead of one undifferentiated block of tags. */
+.skill-group {
+    margin-bottom: 1.25rem;
+}
+
+.skill-group:last-child {
+    margin-bottom: 0;
+}
+
+.skill-group h3 {
+    font-size: 0.8rem;
+    font-weight: 400;
+    text-align: left;
+    letter-spacing: 2px;
+    color: var(--secondary);
+    opacity: 0.8;
+    margin: 0 0 0.5rem;
+    padding-bottom: 0.35rem;
+    border-bottom: 1px solid var(--border);
+}
+
+.skill-group .tags {
+    margin-top: 0;
+    margin-bottom: 0;
+}
 html {
     scroll-behavior: smooth;
 }

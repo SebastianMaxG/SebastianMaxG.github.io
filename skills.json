@@ -1,0 +1,59 @@
+{
+  "_comment": "Skills shown in the sidebar. Tags on projects (projects.json) and on jobs in the Work Experience section are collected automatically - list them here only to control which category and order they appear in. Anything not listed still shows up under 'uncategorizedLabel', so a new project tag is never lost.",
+
+  "uncategorizedLabel": "Other",
+
+  "extraSkills": [
+    "Git",
+    "Java",
+    "Maya 2023",
+    "Houdini",
+    "Inventor",
+    "Rust"
+  ],
+
+  "hidden": [],
+
+  "categories": [
+    {
+      "name": "Languages",
+      "skills": ["C++", "C#", "Python", "Java", "JavaScript", "HTML", "CSS", "SQL"]
+    },
+    {
+      "name": "Embedded & Systems",
+      "skills": ["Embedded Systems", "Linux", "Linux WSL", "Yocto", "Rauc", "Cross-compilation", "Raspberry Pi", "Arduino", "Electronics", "Stepper Motors"]
+    },
+    {
+      "name": "Networking & Protocols",
+      "skills": ["REST APIs", "WebSockets", "WebRTC", "MQTT", "CAN Bus", "Bluetooth", "IPC"]
+    },
+    {
+      "name": "Frameworks & UI",
+      "skills": ["Qt", "Avalonia", "WPF", ".NET", "MVC", "UI Development", "App"]
+    },
+    {
+      "name": "Engines & Graphics",
+      "skills": ["Unreal Engine", "Unity", "Godot", "SDL2", "Vulkan", "Bullet Physics"]
+    },
+    {
+      "name": "Machine Learning",
+      "skills": ["Neural Networks", "Tesseract-OCR"]
+    },
+    {
+      "name": "Tools & Build",
+      "skills": ["Git", "CMake", "Docker", "Jenkins"]
+    },
+    {
+      "name": "Practices",
+      "skills": ["Tool Development", "Engine Plugins", "Reverse Engineering"]
+    },
+    {
+      "name": "3D & Prototyping",
+      "skills": ["3D Modeling", "Maya 2023", "Houdini", "Inventor"]
+    },
+    {
+      "name": "Exploring",
+      "skills": ["Rust"]
+    }
+  ]
+}

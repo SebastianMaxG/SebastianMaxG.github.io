@@ -9,7 +9,9 @@
       "Python",
       "Arduino",
       "App",
-      "Electronics"
+      "Electronics",
+      "Stepper Motors",
+      "Bluetooth"
     ]
   },
   {
@@ -21,7 +23,10 @@
     "Tags": [
       "Unity",
       "C#",
-      ".NET"
+      ".NET",
+      "IPC",
+      "Reverse Engineering",
+      "Engine Plugins"
     ]
   },
   {
@@ -57,6 +62,7 @@
     "Tags": [
       "Python",
       "Tesseract-OCR",
+      "Neural Networks",
       "Linux WSL"
     ]
   },

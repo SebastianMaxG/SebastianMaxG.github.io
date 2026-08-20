@@ -50,7 +50,7 @@
         "Qt",
         "Embedded Linux",
         "Yocto",
-        "CAN bus",
+        "CAN Bus",
         "Python",
         "Tool Programming"
       ],
@@ -83,22 +83,173 @@
         gtag('config', 'G-01H4C4H1KL');
     </script>
     <script>
-        // Fetch projects from the JSON file and render them
-        fetch('projects.json')
-            .then(response => response.json())
-            .then(projects => {
+        // Skill categories, ordering and extra skills all live in skills.json.
+        // To add or re-categorise a skill, edit that file - this page needs no changes.
+        // If skills.json is missing or malformed the sidebar falls back to a flat,
+        // ungrouped tag list rather than rendering nothing.
+        function loadSkillsConfig() {
+            return fetch('skills.json')
+                .then(response => {
+                    if (!response.ok) throw new Error('HTTP ' + response.status);
+                    return response.json();
+                })
+                .catch(error => {
+                    console.warn('skills.json unavailable, falling back to a flat skill list:', error);
+                    return null;
+                });
+        }
+
+        // Resolves once the body has been parsed, so the work-experience tags and the
+        // project container are both guaranteed to exist.
+        function domReady() {
+            return new Promise(resolve => {
+                if (document.readyState === 'loading') {
+                    document.addEventListener('DOMContentLoaded', resolve, { once: true });
+                } else {
+                    resolve();
+                }
+            });
+        }
+
+        // Sorts a tag list into the order skills.json declares, so every tag block on the
+        // page (each job, each project) reads in the same sequence: languages first, then
+        // embedded, frameworks, engines, tools, 3D. Tags not listed in any category go
+        // last, alphabetically.
+        function orderSkills(tags, config) {
+            const rank = new Map();
+            const categories = config && Array.isArray(config.categories) ? config.categories : [];
+            categories.forEach(category => {
+                if (!category || !Array.isArray(category.skills)) return;
+                category.skills.forEach(skill => {
+                    const key = String(skill).trim().toLowerCase();
+                    if (!rank.has(key)) rank.set(key, rank.size);
+                });
+            });
+
+            return tags.slice().sort((a, b) => {
+                const rankA = rank.has(a.trim().toLowerCase()) ? rank.get(a.trim().toLowerCase()) : Infinity;
+                const rankB = rank.has(b.trim().toLowerCase()) ? rank.get(b.trim().toLowerCase()) : Infinity;
+                if (rankA !== rankB) return rankA - rankB;
+                return a.localeCompare(b);
+            });
+        }
+
+        // Reorders the tags already written into the Work Experience markup, so the jobs
+        // follow the same order as the project cards without hand-sorting the HTML.
+        function reorderJobTags(config) {
+            document.querySelectorAll('#work .tags').forEach(container => {
+                const tags = [...container.querySelectorAll('.tag')];
+                if (tags.length < 2) return;
+
+                orderSkills(tags.map(tag => tag.textContent.trim()), config).forEach(name => {
+                    const match = tags.find(tag => tag && tag.textContent.trim() === name);
+                    if (!match) return;
+                    tags[tags.indexOf(match)] = null;
+                    container.appendChild(match); // appendChild moves the existing node
+                });
+            });
+        }
+
+        // Builds the ordered list of groups from the collected skills and skills.json.
+        // Returns a single unnamed group when there is no usable config.
+        function groupSkills(skills, config) {
+            // Keyed by lowercase name so 'CMake' and 'cmake' can't both appear.
+            const remaining = new Map();
+            skills.forEach(skill => {
+                const key = String(skill).trim().toLowerCase();
+                if (key) remaining.set(key, String(skill).trim());
+            });
+
+            (config && Array.isArray(config.hidden) ? config.hidden : [])
+                .forEach(skill => remaining.delete(String(skill).trim().toLowerCase()));
+
+            const categories = config && Array.isArray(config.categories) ? config.categories : [];
+            if (categories.length === 0) {
+                return [{ name: null, skills: [...remaining.values()].sort() }];
+            }
+
+            const groups = categories
+                .filter(category => category && Array.isArray(category.skills))
+                .map(category => ({
+                    name: category.name || '',
+                    // Only the skills actually present, in the order skills.json lists them.
+                    skills: category.skills.filter(skill => {
+                        const key = String(skill).trim().toLowerCase();
+                        if (!remaining.has(key)) return false;
+                        remaining.delete(key);
+                        return true;
+                    }),
+                }))
+                .filter(group => group.skills.length > 0);
+
+            // Anything left over wasn't categorised - surface it rather than dropping it.
+            if (remaining.size > 0) {
+                groups.push({
+                    name: (config && config.uncategorizedLabel) || 'Other',
+                    skills: [...remaining.values()].sort(),
+                });
+            }
+
+            return groups;
+        }
+
+        // Renders the collected skills into the sidebar, grouped by category.
+        function renderSkills(skills, config) {
+            const container = document.getElementById('skills-container');
+            if (!container) return;
+
+            groupSkills(skills, config).forEach(group => {
+                const groupEl = document.createElement('div');
+                groupEl.className = 'skill-group';
+
+                if (group.name) {
+                    const heading = document.createElement('h3');
+                    heading.textContent = group.name;
+                    groupEl.appendChild(heading);
+                }
+
+                const tags = document.createElement('div');
+                tags.className = 'tags';
+                group.skills.forEach(skill => {
+                    const tag = document.createElement('span');
+                    tag.className = 'tag';
+                    tag.textContent = skill;
+                    tags.appendChild(tag);
+                });
+                groupEl.appendChild(tags);
+
+                container.appendChild(groupEl);
+            });
+        }
+
+        Promise.all([
+            fetch('projects.json').then(response => response.json()),
+            loadSkillsConfig(),
+            domReady(),
+        ])
+            .then(([projects, skillsConfig]) => {
                 const container = document.getElementById('project-container');
-                const skillsSet = new Set();
-                const extraSkills = ['Problem Solving', 'Team Collaboration', 'Git', 'C++', 'C#', 'Java', 'Python', 'Unreal Engine', 'Unity', 'Maya 2023', 'Houdini', 'Inventor'];
-                extraSkills.forEach(skill => skillsSet.add(skill));
+                const skills = [];
+
+                // Pick up the tags already listed on each job, so work experience
+                // skills don't have to be maintained in two places.
+                document.querySelectorAll('#work .tag').forEach(tag => skills.push(tag.textContent));
+
+                if (skillsConfig && Array.isArray(skillsConfig.extraSkills)) {
+                    skillsConfig.extraSkills.forEach(skill => skills.push(skill));
+                }
+
+                // Match the tag order on the jobs to the order used on the project cards.
+                reorderJobTags(skillsConfig);
 
                 projects.forEach(project => {
                     const projectElement = document.createElement('div');
                     projectElement.classList.add('project');
-                    project.Tags.forEach(tag => skillsSet.add(tag));
-                    const tagsHTML = project.Tags.map(tag => `<span class="tag">${tag}</span>`).join('');
+                    project.Tags.forEach(tag => skills.push(tag));
+                    const tagsHTML = orderSkills(project.Tags, skillsConfig)
+                        .map(tag => `<span class="tag">${tag}</span>`).join('');
                     projectElement.innerHTML = `
-                        <img src="${project.image}" alt="${project.alt}">
+                        <img src="${project.image}" alt="${project.alt}" loading="lazy">
                         <h3>${project.title}</h3>
                         <p class="preserve-whitespace">${project.description}</p>
                         <div class="tags">${tagsHTML}</div>
@@ -107,25 +258,18 @@
                     container.appendChild(projectElement);
                 });
 
+                renderSkills(skills, skillsConfig);
 
-            // Populate the Skills section
-            const skillsContainer = document.getElementById('skills-container');
-            skillsSet.forEach(skill => {
-                const skillTag = document.createElement('span');
-                skillTag.classList.add('tag'); // Reuse the .tag class for styling
-                skillTag.textContent = skill;
-                skillsContainer.appendChild(skillTag);
-            });
-                            // Reinitialize Masonry after adding content
-            const grid = document.querySelector('.project-grid');
-            imagesLoaded(grid, function () {
-                new Masonry(grid, {
-                    itemSelector: '.project',
-                    columnWidth: '.project',
-                    percentPosition: true,
-                    gutter: 20,
+                // Reinitialize Masonry after adding content
+                const grid = document.querySelector('.project-grid');
+                imagesLoaded(grid, function () {
+                    new Masonry(grid, {
+                        itemSelector: '.project',
+                        columnWidth: '.project',
+                        percentPosition: true,
+                        gutter: 20,
+                    });
                 });
-            });
             })
             .catch(error => console.error('Error loading projects:', error));
     </script>
@@ -383,8 +527,8 @@
             
             <section id="skills">
                 <h2>Skills</h2>
-                <div class="tags" id="skills-container">
-                    <!-- Skills will be dynamically generated here -->
+                <div id="skills-container">
+                    <!-- Skills are grouped by category and generated in the head script -->
                 </div>
             </section>
         </aside>
@@ -398,19 +542,23 @@
                         <p><em>September 2025 - Present</em></p>
                         <div class="tags">
                             <span class="tag">C++</span>
-                            <span class="tag">Qt</span>
+                            <span class="tag">C#</span>
                             <span class="tag">Python</span>
+                            <span class="tag">Qt</span>
+                            <span class="tag">Avalonia</span>
                             <span class="tag">Embedded Systems</span>
                             <span class="tag">Linux</span>
                             <span class="tag">UI Development</span>
                             <span class="tag">Cross-compilation</span>
                             <span class="tag">Raspberry Pi</span>
-                            <span class="tag">CAN Communication</span>
+                            <span class="tag">CAN Bus</span>
+                            <span class="tag">WebRTC</span>
+                            <span class="tag">REST APIs</span>
+                            <span class="tag">MQTT</span>
                             <span class="tag">Rauc</span>
                             <span class="tag">Yocto</span>
                             <span class="tag">Docker</span>
                             <span class="tag">3D Modeling</span>
-
                         </div>
                         <ul>
                             <li>Developed and maintained integrated UI solutions for machine builders, enhancing user experience and functionality.</li>
@@ -442,7 +590,9 @@
                             <span class="tag">WPF</span>
                             <span class="tag">Python</span>
                             <span class="tag">Jenkins</span>
+                            <span class="tag">WebSockets</span>
                             <span class="tag">Tool Development</span>
+                            <span class="tag">Engine Plugins</span>
                         </div>
                         <ul>
                             <li>Developed internal tools to streamline game development processes, improving efficiency and workflow for the team.</li>
@@ -483,8 +633,9 @@
                         </div>
 
                     </div>
+                </div>
         </section>
-    
+
         <section id="projects">
             <h2>Projects</h2>
                 <div class="project-grid" id="project-container" >
