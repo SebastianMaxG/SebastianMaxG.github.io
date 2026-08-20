@@ -242,11 +242,15 @@ section {
     color: var(--light);
 }
 
-/* Sidebar styling */
+/* Sidebar styling.
+   Deliberately NOT sticky: contact + the full skill list is taller than a short
+   viewport, and a sticky element taller than the viewport can never be scrolled
+   to the end - it pins in place and its bottom stays out of reach. The sidebar is
+   the page's scroll driver instead, and #work / #projects get their own
+   scrollboxes so they stay in view while it scrolls. */
 .sidebar {
     flex: 0 0 400px; /* Fixed width for the sidebar */
-    position: sticky;
-    top: 2rem; /* Distance from the top of the viewport */
+    position: static;
     height: fit-content; /* Adjust height to fit content */
 }
 
@@ -395,6 +399,15 @@ footer {
         position: static; /* Remove sticky behavior on small screens */
         width: 100%; /* Full width */
     }
+    /* No inner scrollboxes on touch screens - nesting a scroll area inside the
+       page scroll makes both awkward to use. Everything flows in one column. */
+    #work,
+    #projects {
+        position: static;
+        max-height: none;
+        overflow: visible;
+        padding-right: 2rem;
+    }
 }
 @media (max-width: 1700px) {
     .project {
@@ -413,7 +426,7 @@ footer {
     .sidebar {
         grid-column: 1;
         grid-row: 1 / -1;
-        position: sticky;
+        position: static;
     }
 
     #work {
@@ -425,14 +438,29 @@ footer {
         grid-column: 2;
         grid-row: 2;
     }
+
+    /* Work and projects share the second column, so cap each at roughly half the
+       viewport. Together they stay within one screen while the sidebar scrolls. */
+    #work,
+    #projects {
+        position: sticky;
+        top: 5rem;
+        max-height: calc(50vh - 3.5rem);
+        overflow-y: auto;
+        overflow-x: hidden;
+        padding-right: 1rem;
+    }
 }
 @media (min-width: 1201px) {
-    /* Make the work section a separate scrollbox and sticky on wide screens */
-    #work {
+    /* Work and projects are each their own scrollbox, pinned below the navbar,
+       so the sidebar's skill list is what the page scroll actually moves. */
+    #work,
+    #projects {
         position: sticky;
         top: 5rem; /* align with navbar */
         max-height: calc(100vh - 7.5rem);
         overflow-y: auto;
+        overflow-x: hidden;
         padding-right: 1rem;
         background: transparent;
     }
@@ -441,35 +469,41 @@ footer {
     .work-experience {
         display: block;
     }
+}
 
-    /* Keep sidebar sticky as before */
-    .sidebar {
-        position: sticky;
-        top: 5rem;
-        height: fit-content;
-    }
-    /* Custom scrollbar for Chromium-based browsers and WebKit */
-    #work::-webkit-scrollbar {
-        width: 12px;
-    }
-    #work::-webkit-scrollbar-track {
-        background: rgba(255,255,255,0.03);
-        border-radius: 10px;
-    }
-    #work::-webkit-scrollbar-thumb {
-        background: linear-gradient(180deg, var(--primary) 0%, var(--secondary) 100%);
-        border-radius: 10px;
-        border: 3px solid rgba(0,0,0,0.08);
-    }
-    #work::-webkit-scrollbar-thumb:hover {
-        filter: brightness(0.95);
-    }
+/* Scrollbar styling for the two scrollboxes. Outside the media queries because it
+   only has any effect when a scrollbar is actually present. */
+#work::-webkit-scrollbar,
+#projects::-webkit-scrollbar {
+    width: 12px;
+}
+#work::-webkit-scrollbar-track,
+#projects::-webkit-scrollbar-track {
+    background: rgba(255,255,255,0.03);
+    border-radius: 10px;
+}
+#work::-webkit-scrollbar-thumb,
+#projects::-webkit-scrollbar-thumb {
+    background: linear-gradient(180deg, var(--primary) 0%, var(--secondary) 100%);
+    border-radius: 10px;
+    border: 3px solid rgba(0,0,0,0.08);
+}
+#work::-webkit-scrollbar-thumb:hover,
+#projects::-webkit-scrollbar-thumb:hover {
+    filter: brightness(0.95);
+}
 
-    /* Firefox scrollbar styling */
-    #work {
-        scrollbar-width: thin;
-        scrollbar-color: var(--primary) rgba(255,255,255,0.03);
-    }
+/* Firefox scrollbar styling */
+#work,
+#projects {
+    scrollbar-width: thin;
+    scrollbar-color: var(--primary) rgba(255,255,255,0.03);
+}
+
+/* A project card scaling on hover would be clipped by the scrollbox edge, so use
+   the same restrained zoom the mobile layout already uses. */
+#projects .project:hover {
+    transform: scale(1.02);
 }
 .tag {
     display: inline-block;
