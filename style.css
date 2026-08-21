@@ -273,6 +273,17 @@ section {
     margin-bottom: 1rem;
 }
 
+/* Wraps work experience + projects as one unit beside the sidebar. Being a single
+   grid/flex child means the tall sidebar can no longer stretch a row and push
+   projects far down the page - the two always sit directly against each other. */
+.content-columns {
+    flex: 1;
+    min-width: 0; /* let flex children shrink instead of overflowing */
+    display: flex;
+    align-items: flex-start;
+    gap: 2rem;
+}
+
 .project-grid {
     display: block; /* Masonry requires block display */
 }
@@ -401,12 +412,16 @@ footer {
     }
     /* No inner scrollboxes on touch screens - nesting a scroll area inside the
        page scroll makes both awkward to use. Everything flows in one column. */
+    .content-columns,
     #work,
     #projects {
         position: static;
         max-height: none;
         overflow: visible;
-        padding-right: 2rem;
+    }
+    .content-columns {
+        display: block;
+        padding-right: 0;
     }
 }
 @media (max-width: 1700px) {
@@ -414,55 +429,13 @@ footer {
         width: calc(100% - 1rem);
     }
 }
-@media (min-width: 801px) and (max-width: 1200px) {
-    /* move projects below the work experience on medium screens (801px–1200px)
-       keeps small screens (<=800px) using the stacked column layout */
-    .main-container {
-        display: grid;
-        grid-template-columns: 400px 1fr;
-        gap: 2rem;
-    }
-
-    .sidebar {
-        grid-column: 1;
-        grid-row: 1 / -1;
-        position: static;
-    }
-
-    #work {
-        grid-column: 2;
-        grid-row: 1;
-    }
-
-    #projects {
-        grid-column: 2;
-        grid-row: 2;
-    }
-
-    /* Work and projects share the second column, so cap each at roughly half the
-       viewport. Together they stay within one screen while the sidebar scrolls. */
-    #work,
-    #projects {
-        position: sticky;
-        top: 5rem;
-        max-height: calc(50vh - 3.5rem);
-        overflow-y: auto;
-        overflow-x: hidden;
-        padding-right: 1rem;
-    }
-}
-@media (min-width: 1201px) {
-    /* Work and projects are each their own scrollbox, pinned below the navbar,
-       so the sidebar's skill list is what the page scroll actually moves. */
-    #work,
-    #projects {
+@media (min-width: 801px) {
+    /* The wrapper is what stays pinned below the navbar, so the page scroll moves
+       the sidebar's skill list while work and projects remain in view. */
+    .content-columns {
         position: sticky;
         top: 5rem; /* align with navbar */
         max-height: calc(100vh - 7.5rem);
-        overflow-y: auto;
-        overflow-x: hidden;
-        padding-right: 1rem;
-        background: transparent;
     }
 
     /* Ensure internal spacing doesn't collapse when boxed */
@@ -470,30 +443,67 @@ footer {
         display: block;
     }
 }
+@media (min-width: 801px) and (max-width: 1200px) {
+    /* Medium screens: not enough width for two columns, so stack work and projects
+       and give the wrapper ONE scrollbar covering both. Projects then follows
+       directly after the work experience instead of being pushed down the page. */
+    .content-columns {
+        display: block;
+        overflow-y: auto;
+        overflow-x: hidden;
+        padding-right: 1rem;
+    }
 
-/* Scrollbar styling for the two scrollboxes. Outside the media queries because it
-   only has any effect when a scrollbar is actually present. */
+    /* The wrapper owns the scrolling; these just flow inside it. */
+    #work,
+    #projects {
+        position: static;
+        max-height: none;
+        overflow: visible;
+        padding-right: 0;
+    }
+}
+@media (min-width: 1201px) {
+    /* Wide screens: side by side, each with its own scrollbox. */
+    #work,
+    #projects {
+        max-height: calc(100vh - 7.5rem);
+        overflow-y: auto;
+        overflow-x: hidden;
+        padding-right: 1rem;
+        background: transparent;
+    }
+}
+
+/* Scrollbar styling for every scroll area: the merged wrapper on medium screens and
+   the two separate boxes on wide ones. Outside the media queries because it only has
+   any effect when a scrollbar is actually present. */
+.content-columns::-webkit-scrollbar,
 #work::-webkit-scrollbar,
 #projects::-webkit-scrollbar {
     width: 12px;
 }
+.content-columns::-webkit-scrollbar-track,
 #work::-webkit-scrollbar-track,
 #projects::-webkit-scrollbar-track {
     background: rgba(255,255,255,0.03);
     border-radius: 10px;
 }
+.content-columns::-webkit-scrollbar-thumb,
 #work::-webkit-scrollbar-thumb,
 #projects::-webkit-scrollbar-thumb {
     background: linear-gradient(180deg, var(--primary) 0%, var(--secondary) 100%);
     border-radius: 10px;
     border: 3px solid rgba(0,0,0,0.08);
 }
+.content-columns::-webkit-scrollbar-thumb:hover,
 #work::-webkit-scrollbar-thumb:hover,
 #projects::-webkit-scrollbar-thumb:hover {
     filter: brightness(0.95);
 }
 
 /* Firefox scrollbar styling */
+.content-columns,
 #work,
 #projects {
     scrollbar-width: thin;
