@@ -9,7 +9,9 @@
     "Maya 2023",
     "Houdini",
     "Inventor",
-    "Rust"
+    "Fusion 360",
+    "Rust",
+    "COBOL"
   ],
 
   "hidden": [],
@@ -49,11 +51,11 @@
     },
     {
       "name": "3D & Prototyping",
-      "skills": ["3D Modeling", "Maya 2023", "Houdini", "Inventor"]
+      "skills": ["3D Modeling", "Maya 2023", "Houdini", "Inventor", "Fusion 360", "3D Printing"]
     },
     {
       "name": "Exploring",
-      "skills": ["Rust"]
+      "skills": ["Rust", "COBOL"]
     }
   ]
 }
